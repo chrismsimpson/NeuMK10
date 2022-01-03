@@ -3,6 +3,14 @@ namespace Neu;
 
 public abstract class Frame {
 
-    public Frame()
-        : base() { }
+    public Node? Node { get; init; }
+
+    ///
+
+    public Frame(
+        Node? node)
+        : base()
+    {
+        this.Node = node;
+    }
 }

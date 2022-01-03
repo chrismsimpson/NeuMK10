@@ -10,7 +10,7 @@ public partial class NeuValue {
 
 public partial class NeuValue {
 
-    // public static readonly NeuValue Undefined = new NeuUndefined();
+    public static readonly NeuValue Void = new NeuVoid();
     // public static readonly NeuValue Null = new NeuNull();
 }
 

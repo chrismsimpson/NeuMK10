@@ -6,14 +6,20 @@ public static partial class Program {
     public static void Main(
         String[] args) {
 
-        var n = GetTestsDirectory("Neu");
+        var tests = GetTestsDirectory("Neu");
 
-        var f = Combine(n, "test00.neu");
+        var filename = Combine(tests, "test00.neu");
 
-        var s = NeuParser.FromFile(f);
+        var interpreter = new NeuInterpreter();
 
-        var s2 = s.ParseSource();
+        var result = interpreter.Evaluate(filename);
 
-        WriteLine($"{s2.Dump()}");
+        WriteLine($"{result}");
+
+        // var s = NeuParser.FromFile(f);
+
+        // var s2 = s.ParseSource();
+
+        // WriteLine($"{s2.Dump()}");
     }
 }

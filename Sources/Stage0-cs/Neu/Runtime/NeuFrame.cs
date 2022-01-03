@@ -3,7 +3,9 @@ namespace Neu;
 
 public partial class NeuFrame: Frame {
 
-    public NeuFrame() { }
+    public NeuFrame(
+        Node? node)
+        : base (node) { }
 }
 
 ///
