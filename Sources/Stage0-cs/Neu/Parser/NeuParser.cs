@@ -7,3 +7,15 @@ public partial class NeuParser: Parser<NeuToken> {
         NeuTokenizer tokenizer)
         : base(tokenizer) { }
 }
+
+///
+
+public partial class NeuParser {
+
+    public static NeuParser FromFile(
+        String fullPath) {
+            
+        return new NeuParser(
+            NeuTokenizer.FromFile(fullPath));
+    }
+}
