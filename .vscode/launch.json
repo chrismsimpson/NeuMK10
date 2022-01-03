@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "run",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Sources/Stage0-cs/bin/Debug/net6.0/Neu.dll",
+            "args": [
+                
+            ],
+            "cwd": "${workspaceFolder}/Sources",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false,
+            "logging": {
+                "moduleLoad": false,
+                "engineLogging": false,
+                "elapsedTiming": false,
+                "exceptions": true,
+                "processExit": true,
+                "programOutput": true,
+                "threadExit": false
+            },
+            "requireExactSource": true
+        }
+    ]
+}
