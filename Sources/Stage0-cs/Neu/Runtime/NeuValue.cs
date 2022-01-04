@@ -14,54 +14,67 @@ public partial class NeuValue {
     // public static readonly NeuValue Null = new NeuNull();
 }
 
+public partial class NeuReturnValue: NeuValue {
+
+    public NeuValue? Value { get; init; }
+
+    ///
+
+    public NeuReturnValue(
+        NeuValue? value) {
+
+        this.Value = value;
+    }
+}
+
 ///
 
-// public static partial class NeuValueFunctions {
+public static partial class NeuValueFunctions {
 
-//     public static String Dump(
-//         this NeuValue value) {
+    public static String Dump(
+        this NeuValue value) {
 
-//         switch (value) {
+        switch (value) {
             
-//             case NeuBoolean b:
-//                 return b.Value 
-//                     ? "true"
-//                     : "false";
+            // case NeuBoolean b:
+            //     return b.Value 
+            //         ? "true"
+            //         : "false";
 
-//             ///
+            // ///
 
-//             case NeuString s:
-//                 return s.Value;
+            // case NeuString s:
+            //     return s.Value;
 
-//             ///
+            // ///
 
-//             case NeuFloat f:
-//                 return $"{f.Value}";
+            // case NeuFloat f:
+            //     return $"{f.Value}";
 
-//             ///
+            // ///
 
-//             case NeuNull _:
-//                 return "null";
+            // case NeuNull _:
+            //     return "null";
 
-//             ///
+            // ///
 
-//             case NeuUndefined _:
-//                 return "undefined";
+            // case NeuUndefined _:
+            //     return "undefined";
 
-//             ///
+            // ///
 
-//             case NeuObject o:
-//                 return $"object";
+            // case NeuObject o:
+            //     return $"object";
 
-//             ///
+            // ///
 
-//             case NeuInteger i:
-//                 return $"{i.Value}";
+            case NeuInteger i:
+                return $"int: {i.Value}";
 
-//             ///
+            ///
 
-//             default:
-//                 throw new Exception();
-//         }   
-//     }
-// }
+            default:
+                return $"Unknown: {value}";
+        }   
+    }
+}

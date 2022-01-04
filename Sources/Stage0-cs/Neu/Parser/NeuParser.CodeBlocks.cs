@@ -29,6 +29,13 @@ public static partial class NeuParserFunctions {
 
         while (!parser.Tokenizer.IsEof()) {
 
+            if (parser.Tokenizer.MatchPunc(NeuPuncType.RightBrace)) {
+
+                break;
+            }
+
+            ///
+
             var item = parser.ParseCodeBlockItem();
 
             if (item == null) {
@@ -47,7 +54,7 @@ public static partial class NeuParserFunctions {
     public static NeuCodeBlockItem? ParseCodeBlockItem(
         this NeuParser parser) {
 
-        switch (parser.Tokenizer.MaybePeek()) {
+        switch (parser.Tokenizer.Peek()) {
 
             case NeuKeyword keyword when keyword.KeywordType == NeuKeywordType.Func:
                 return parser.ParseFuncDecl();
@@ -55,7 +62,17 @@ public static partial class NeuParserFunctions {
             ///
 
             default:
-                return null;
+                return parser.ParseStatement();
+
+            // ///
+
+            // case NeuKeyword keyword when keyword.KeywordType == NeuKeywordType.Return:
+            //     return parser.ParseReturnStatement();
+
+            // ///
+
+            // default:
+            //     return null;
         }
     }
 

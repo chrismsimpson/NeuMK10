@@ -18,7 +18,7 @@ public static partial class Program {
 
         var result = interpreter.Evaluate(filename, dumpAST: true);
 
-        WriteLine($"{result}\n");
+        WriteLine($"{result.Dump()}\n");
 
         stopwatch.Stop();
 

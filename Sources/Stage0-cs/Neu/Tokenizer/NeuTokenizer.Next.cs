@@ -6,7 +6,7 @@ public static partial class NeuTokenizerFunctions {
     public static NeuToken? MaybeNext(
         this Tokenizer<NeuToken> tokenizer) {
 
-        var peek = tokenizer.MaybePeek();
+        var peek = tokenizer.Peek();
 
         if (peek != null) {
 
@@ -61,6 +61,9 @@ public static partial class NeuTokenizerFunctions {
             case ',':
                 return tokenizer.NextComma();
 
+            case '=':
+                return tokenizer.NextEqual();
+
 
 
             /// Keywords
@@ -70,6 +73,12 @@ public static partial class NeuTokenizerFunctions {
 
             case 'r' when tokenizer.Scanner.MatchWithTrailingWhitespace(equals: "eturn", distance: 1):
                 return tokenizer.NextReturn();
+
+            
+            /// Literals - Numbers
+
+            case Char c when IsNumberLiteralStart(c):
+                return tokenizer.NextNumberLiteral();
 
 
 
@@ -81,8 +90,8 @@ public static partial class NeuTokenizerFunctions {
 
 
 
-            default:
-                throw new Exception();
+            case var t:
+                throw new Exception($"Unexpected: {t}");
         }
     }
 }

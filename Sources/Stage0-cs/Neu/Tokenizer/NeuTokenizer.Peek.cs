@@ -3,7 +3,7 @@ namespace Neu;
 
 public static partial class NeuTokenizerFunctions {
 
-    public static NeuToken? MaybePeek(
+    public static NeuToken? Peek(
         this Tokenizer<NeuToken> tokenizer) {
 
         if (tokenizer.Position + 1 <= tokenizer.Tokens.Count) {

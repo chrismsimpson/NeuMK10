@@ -7,7 +7,7 @@ public static partial class NeuTokenizerFunctions {
         this Tokenizer<NeuToken> tokenizer,
         NeuKeywordType keywordType) {
 
-        if (tokenizer.MaybePeek() is NeuKeyword k && k.KeywordType == keywordType) {
+        if (tokenizer.Peek() is NeuKeyword k && k.KeywordType == keywordType) {
 
             tokenizer.Position++;
 

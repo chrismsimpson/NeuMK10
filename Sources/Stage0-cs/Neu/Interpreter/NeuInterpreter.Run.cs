@@ -5,44 +5,41 @@ public static partial class NeuInterpreterFunctions {
 
     public static NeuValue Run(
         this NeuInterpreter interpreter,
-        NeuSource source) {
-
-        return interpreter.RunWithArguments(source);
-    }
-
-    public static NeuValue RunWithArguments(
-        this NeuInterpreter interpreter,
         NeuNode node) {
             
         interpreter.Enter(node);
 
         ///
 
-        var lastValue = NeuValue.Void;
+        NeuValue lastValue = NeuValue.Void;
 
-        foreach (var child in node.Children) {
+        var done = false;
 
-            switch (child) {
+        for (var i = 0; i < node.Children.Count() && !done; i++) {
 
-                case NeuDeclaration decl:
+            var child = node.Children.ElementAt(i);
 
-                    lastValue = interpreter.Execute(decl);
+            switch (interpreter.Execute(child)) {
+
+                case NeuReturnValue returnValue:
+
+                    lastValue = returnValue.Value ?? NeuValue.Void;
+
+                    done = true;
 
                     break;
 
                 ///
 
-                case NeuStatement stmt:
+                case NeuValue value:
 
-                    lastValue = interpreter.Execute(stmt);
+                    lastValue = value;
 
                     break;
 
                 ///
 
                 default:
-
-                    WriteLine("NO OP\n");
 
                     break;
             }
@@ -51,6 +48,22 @@ public static partial class NeuInterpreterFunctions {
         ///
 
         interpreter.Exit(node);
+
+        ///
+
+        if (interpreter.Stack.Count == 0 && 
+            lastValue is NeuFunc func &&
+            func.Name == "main") {
+
+            var body = func.GetBody();
+
+            if (body == null) {
+
+                throw new Exception();
+            }
+
+            lastValue = interpreter.Run(body);
+        }
 
         ///
 
