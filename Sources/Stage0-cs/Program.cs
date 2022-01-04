@@ -10,13 +10,15 @@ public static partial class Program {
 
         var tests = GetTestsDirectory("Neu");
 
-        var filename = Combine(tests, "test00.neu");
+        var filename = Combine(tests, "test01.neu");
+
+        WriteLine($"Evaluating: {filename}\n");
 
         var interpreter = new NeuInterpreter();
 
         var result = interpreter.Evaluate(filename, dumpAST: true);
 
-        WriteLine($"{result}");
+        WriteLine($"{result}\n");
 
         stopwatch.Stop();
 

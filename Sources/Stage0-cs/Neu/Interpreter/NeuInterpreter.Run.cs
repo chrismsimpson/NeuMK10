@@ -24,11 +24,25 @@ public static partial class NeuInterpreterFunctions {
 
             switch (child) {
 
+                case NeuDeclaration decl:
+
+                    lastValue = interpreter.Execute(decl);
+
+                    break;
+
+                ///
+
+                case NeuStatement stmt:
+
+                    lastValue = interpreter.Execute(stmt);
+
+                    break;
+
                 ///
 
                 default:
 
-                    WriteLine("NO OP");
+                    WriteLine("NO OP\n");
 
                     break;
             }

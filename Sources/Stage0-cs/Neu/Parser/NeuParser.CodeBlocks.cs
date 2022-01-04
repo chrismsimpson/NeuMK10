@@ -27,10 +27,35 @@ public static partial class NeuParserFunctions {
 
         ///
 
-        // TODO:
+        while (!parser.Tokenizer.IsEof()) {
+
+            var item = parser.ParseCodeBlockItem();
+
+            if (item == null) {
+
+                break;
+            }
+
+            items.Add(item);
+        }
 
         ///
 
         return items;
+    }
+
+    public static NeuCodeBlockItem? ParseCodeBlockItem(
+        this NeuParser parser) {
+
+        switch (parser.Tokenizer.MaybePeek()) {
+
+            case NeuKeyword keyword when keyword.KeywordType == NeuKeywordType.Func:
+                return parser.ParseFuncDecl();
+
+            ///
+
+            default:
+                return null;
+        }
     }
 }

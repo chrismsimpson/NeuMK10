@@ -18,7 +18,7 @@ public static partial class NeuInterpreterFunctions {
 
         if (dumpAST) {
 
-            WriteLine($"{source.Dump()}");
+            WriteLine($"{source.Dump()}\n");
         }
 
         ///
