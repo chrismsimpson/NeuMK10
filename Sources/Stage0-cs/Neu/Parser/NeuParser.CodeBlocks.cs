@@ -58,4 +58,49 @@ public static partial class NeuParserFunctions {
                 return null;
         }
     }
+
+    public static NeuCodeBlock ParseCodeBlock(
+        this NeuParser parser) {
+
+        var start = parser.Tokenizer.GetLocation();
+
+        ///
+
+        var children = new List<Node>();
+
+        ///
+
+        var leftBrace = parser.Tokenizer.MaybeNextLeftBrace();
+
+        if (leftBrace == null) {
+
+            throw new Exception();
+        }
+
+        children.Add(leftBrace);
+
+        ///
+
+        var list = parser.ParseCodeBlockItemList();
+
+        children.Add(list);
+
+        ///
+
+        var rightBrace = parser.Tokenizer.MaybeNextRightBrace();
+
+        if (rightBrace == null) {
+
+            throw new Exception();
+        }
+
+        children.Add(rightBrace);
+
+        ///
+
+        return new NeuCodeBlock(
+            children: children,
+            start: start,
+            end: parser.Tokenizer.GetLocation());
+    }
 }
