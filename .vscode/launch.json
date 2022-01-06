@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "run",
+            "name": "neu",
             "type": "coreclr",
             "request": "launch",
             "program": "${workspaceFolder}/Sources/Stage0-cs/Neu/bin/Debug/net6.0/Neu.dll",
