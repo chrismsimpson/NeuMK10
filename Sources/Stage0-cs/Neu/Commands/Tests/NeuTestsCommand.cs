@@ -25,7 +25,10 @@ public class NeuTestsCommand: ICommand {
         await new NeuTestsVoidCommand()
             .Run(filename: "../Tests/Neu/test00.neu");
 
-        await new NeuTestsBasicFuncCommand()
+        await new NeuTestsBasicIntFuncCommand()
             .Run(filename: "../Tests/Neu/test01.neu");
+
+        await new NeuTestsBasicFloatFuncCommand()
+            .Run(filename: "../Tests/Neu/test02.neu");
     }
 }

@@ -40,6 +40,34 @@ Having vacillated over which language to start with and in my indecision have se
 - C# - ¯\\\_(ツ)\_/¯
 - C - For the academics. No real plan to complete this. I have some opinions (don't we all) about things like treating char strictly like a byte and how UTF-8 ought be handled. Contributions definitely welcome here. Neu Mks 4 - 9 are all in C, and I have yet to rationalise down that code into this repo.
 
+## Commands
+
+### Neu sub-commands
+
+#### `build`
+
+Build a Neu project.
+
+Invoked via `neu build ./path/to/some/project`
+
+#### `eval`
+
+Evaluate a source file.
+
+Invoked via `neu ./path/to/some/source/file.neu`
+
+**TODO:** Enable running by either building/compiling first or REPL mode.
+
+#### `interactive`
+
+An interactive mode read edit print loop (REPL).
+
+#### `tests`
+
+Run the test suite.
+
+### 
+
 ## Disclaimer
 
 I have no idea what I am doing.

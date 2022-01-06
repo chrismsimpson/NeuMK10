@@ -12,6 +12,8 @@ public class NeuEvalCommand: ICommand {
 
         await Task.Run(() => {
 
+            var interpreter = new NeuInterpreter();
+
             throw new Exception();
         });
     }

@@ -1,9 +1,9 @@
 
 namespace Neu;
 
-public class NeuTestsBasicFuncCommand: NeuTestsCommand {
+public class NeuTestsBasicFloatFuncCommand: NeuTestsCommand {
 
-    public NeuTestsBasicFuncCommand() { }
+    public NeuTestsBasicFloatFuncCommand() { }
 
     ///
 
@@ -43,16 +43,16 @@ public class NeuTestsBasicFuncCommand: NeuTestsCommand {
 
             ///
 
-            var intResult = result as NeuInteger;
+            var floatResult = result as NeuFloat;
 
-            if (intResult == null) {
+            if (floatResult == null) {
 
                 throw new Exception();
             }
 
             ///
 
-            if (intResult.Value != 0) {
+            if (floatResult.Value != 0.0) {
 
                 throw new Exception();
             }
