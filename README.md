@@ -4,7 +4,7 @@ The escape hatch
 
 ## What is this?
 
-From Tests/:
+From `Tests/`:
 
 ### test01.neu
 
