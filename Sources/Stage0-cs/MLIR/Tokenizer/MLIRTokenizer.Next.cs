@@ -34,6 +34,8 @@ public static partial class MLIRTokenizerFunctions {
             case ']':
                 return tokenizer.NextRightBracket();
 
+
+
             /// Keywords
 
             case 'f' when tokenizer.Scanner.MatchWithTrailingWhitespace(equals: "unc", distance: 1):
