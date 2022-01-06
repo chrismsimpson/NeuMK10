@@ -14,19 +14,6 @@ public partial class NeuValue {
     // public static readonly NeuValue Null = new NeuNull();
 }
 
-public partial class NeuReturnValue: NeuValue {
-
-    public NeuValue? Value { get; init; }
-
-    ///
-
-    public NeuReturnValue(
-        NeuValue? value) {
-
-        this.Value = value;
-    }
-}
-
 ///
 
 public static partial class NeuValueFunctions {
@@ -35,19 +22,19 @@ public static partial class NeuValueFunctions {
         this NeuValue value) {
 
         switch (value) {
-            
-            case NeuVoid _:
-                return "void";
-
-            ///
 
             case NeuInteger i:
                 return $"int: {i.Value}";
 
             ///
 
+            case NeuVoid _:
+                return "void";
+
+            ///
+
             default:
-                return $"Unknown: {value}";
+                return $"unknown: {value}";
         }   
     }
 }

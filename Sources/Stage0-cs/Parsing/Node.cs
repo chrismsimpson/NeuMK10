@@ -26,6 +26,22 @@ public partial class Node {
 
 public static partial class NodeFunctions {
 
+    public static T? GetFirstOrDefault<T>(
+        this Node node) {
+
+        foreach (var child in node.Children) {
+
+            if (child is T t) {
+
+                return t;
+            }
+        }
+
+        ///
+
+        return default(T?);
+    }
+
     public static String GetName(
         this Node node) {
 

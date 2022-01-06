@@ -63,6 +63,10 @@ public static partial class NeuInterpreterFunctions {
             lastValue is NeuFunc func &&
             func.Name == "main") {
 
+            var returnType = func.GetReturnType();
+
+            ///
+
             var body = func.GetBodyCodeBlock();
 
             if (body == null) {
@@ -80,6 +84,11 @@ public static partial class NeuInterpreterFunctions {
             }
 
             ///
+
+            if (!funcResult.Matches(returnType)) {
+
+                throw new Exception("Value does not match return type");
+            }
 
             ///
 

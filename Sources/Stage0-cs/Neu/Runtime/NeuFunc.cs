@@ -26,19 +26,29 @@ public static partial class NeuFuncFunctions {
     public static NeuCodeBlock? GetBodyCodeBlock(
         this NeuFunc func) {
 
-        if (func.Node is Node n) {
+        return func.Node.GetFirstOrDefault<NeuCodeBlock>();
+    }
 
-            foreach (var child in n.Children) {
+    public static NeuFuncSignature? GetFuncSignature(
+        this NeuFunc func) {
 
-                if (child is NeuCodeBlock b) {
-                    
-                    return b;
-                }
-            }
+        return func.Node.GetFirstOrDefault<NeuFuncSignature>();
+    }
+
+    public static NeuNode? GetReturnType(
+        this NeuFunc func) {
+
+        var funcSignature = func.GetFuncSignature();
+
+        if (funcSignature == null) {
+
+            throw new Exception();
         }
 
         ///
 
-        return null;
+        return funcSignature?
+            .GetReturnClause()?
+            .GetFirstOrDefault<NeuNode>();
     }
 }
