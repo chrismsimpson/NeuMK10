@@ -3,9 +3,10 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Run(
+    public static NeuValue Execute(
         this NeuInterpreter interpreter,
-        NeuNode node) {
+        NeuNode node,
+        params object[] arguments) {
             
         interpreter.Enter(node);
 
@@ -19,7 +20,13 @@ public static partial class NeuInterpreterFunctions {
 
             var child = node.Children.ElementAt(i);
 
-            switch (interpreter.Execute(child)) {
+            ///
+
+            var result = interpreter.Execute(child);
+
+            ///
+
+            switch (result) {
 
                 case NeuReturnValue returnValue:
 
@@ -62,7 +69,7 @@ public static partial class NeuInterpreterFunctions {
                 throw new Exception();
             }
 
-            lastValue = interpreter.Run(body);
+            lastValue = interpreter.Execute(body);
         }
 
         ///

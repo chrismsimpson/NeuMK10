@@ -1,7 +1,7 @@
 
 namespace Neu;
 
-public static partial class JSInterpreterFunctions {
+public static partial class NeuInterpreterFunctions {
 
     public static NeuValue? Execute(
         this NeuInterpreter interpreter,
@@ -18,16 +18,8 @@ public static partial class JSInterpreterFunctions {
 
         var value = interpreter.Execute(argument);
 
-        // interpreter.DoReturn();
-
-        // return value;
+        ///
 
         return new NeuReturnValue(value);
     }
-
-    // public static void DoReturn(
-    //     this NeuInterpreter interpreter) {
-
-    //     // TODO: Actually return execution from within a method
-    // }
 }

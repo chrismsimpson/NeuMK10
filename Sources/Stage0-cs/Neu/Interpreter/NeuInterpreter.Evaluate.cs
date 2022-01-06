@@ -23,6 +23,6 @@ public static partial class NeuInterpreterFunctions {
 
         ///
 
-        return interpreter.Run(source);
+        return interpreter.Execute(source);
     }
 }

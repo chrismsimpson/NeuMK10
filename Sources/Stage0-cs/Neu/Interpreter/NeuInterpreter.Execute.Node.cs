@@ -20,7 +20,7 @@ public static partial class NeuInterpreterFunctions {
             ///
         
             case NeuExpression e:
-                return interpreter.Execute(e);
+                return interpreter.Execute((Node)e);
 
             ///
 
@@ -45,7 +45,7 @@ public static partial class NeuInterpreterFunctions {
             ///
 
             case NeuNode neuNode:
-                return interpreter.Run(neuNode);
+                return interpreter.Execute(neuNode);
 
             ///
 
