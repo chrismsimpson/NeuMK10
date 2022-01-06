@@ -36,9 +36,9 @@ That said, early iterations of these IRs may not resemble their distant cousins 
 
 ## Stage 0
 
-This current attempt is the tenth serious one at building this thing. I have vacillated over which language to start with and in my indecision have settled at two:
-- C# - It's a very good toolchain, and Neu needn't inherit any of the properties of the language used to implement Stage 0. That does mean ruling out any .NET shortcuts (nothing managed, no .dlls, no CLR etc.). The toolchain for Neu will be heavily influenced by the `dotnet` one.
-- C - The purest of academics will simply only accept C (i.e. not even C++). This is a possible answer to such critics, however I have no serious plan to do this, I have some thoughts (read: ill informed opinions) about things like treating char strictly like a byte and how UTF-8 ought be handled. Contributions definitely welcome here. Neu Mks 4 - 9 are all in C, and I have yet to rationalise down that code into this repo.
+Having vacillated over which language to start with and in my indecision have settled at two:
+- C# - I want to get it done this century.
+- C - The purest of academics will simply only accept C (i.e. not even C++). This is a possible answer to such critics, however I have no serious plan to do this, I merely have some thoughts (read: ill informed opinions) about things like treating char strictly like a byte and how UTF-8 ought be handled. Contributions definitely welcome here. Neu Mks 4 - 9 are all in C, and I have yet to rationalise down that code into this repo.
 
 ## Disclaimer
 
