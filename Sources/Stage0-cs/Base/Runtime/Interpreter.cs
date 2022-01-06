@@ -1,10 +1,10 @@
 
-namespace Neu;
+namespace Base;
 
 public abstract class Interpreter<F>
     where F : Frame {   
 
-    internal Stack<F> Stack { get; init; }
+    public Stack<F> Stack { get; init; }
 
     ///
 

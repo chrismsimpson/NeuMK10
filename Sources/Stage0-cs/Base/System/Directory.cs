@@ -1,5 +1,5 @@
 
-namespace Neu;
+namespace Base;
 
 public static partial class DirectoryFunctions {
 

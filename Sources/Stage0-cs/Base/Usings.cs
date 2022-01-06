@@ -10,6 +10,3 @@ global using static System.String;
 global using static System.Object;
 global using static System.IO.Directory;
 global using static System.IO.Path;
-
-global using static Neu.DirectoryFunctions;
-global using static Neu.NeuTokenizer;

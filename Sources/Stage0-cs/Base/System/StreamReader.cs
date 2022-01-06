@@ -1,7 +1,7 @@
 
 using System.Reflection;
 
-namespace Neu;
+namespace Base;
 
 public static partial class StreamReaderFunctions {
 

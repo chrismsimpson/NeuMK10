@@ -1,13 +1,13 @@
 
-namespace Neu;
+namespace Base;
 
 public class Tokenizer<T> where T: Token {
 
-    internal IScanner Scanner { get; init; }
+    public IScanner Scanner { get; init; }
 
-    internal IList<T> Tokens { get; init; }
+    public IList<T> Tokens { get; init; }
 
-    internal int Position { get; set; }
+    public int Position { get; set; }
 
     ///
 

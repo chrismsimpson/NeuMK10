@@ -1,5 +1,5 @@
 
-namespace Neu;
+namespace Base;
 
 public partial class StreamScanner: IScanner {
 

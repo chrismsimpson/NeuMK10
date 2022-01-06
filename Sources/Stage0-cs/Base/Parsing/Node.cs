@@ -1,13 +1,13 @@
 
-namespace Neu;
+namespace Base;
 
 public partial class Node {
 
-    internal IEnumerable<Node> Children { get; init; }
+    public IEnumerable<Node> Children { get; init; }
 
-    internal SourceLocation Start { get; init; }
+    public SourceLocation Start { get; init; }
 
-    internal SourceLocation End { get; init; }
+    public SourceLocation End { get; init; }
 
     ///
     

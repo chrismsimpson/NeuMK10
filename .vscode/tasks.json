@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "build Stage0-cs",
-            "command": "dotnet build Sources/Stage0-cs",
+            "command": "dotnet build Sources/Stage0-cs/Neu.sln",
             "type": "shell",
             "args": [
             ],
