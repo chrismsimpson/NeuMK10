@@ -87,7 +87,7 @@ public static partial class ArgsParserFunctions {
 
         ///
 
-        var args = parser.ParseArgTokens();
+        var args = parser.ParseOptionTrailingArguments();
 
         ///
 
@@ -96,7 +96,7 @@ public static partial class ArgsParserFunctions {
             args: args);
     }
 
-    public static IEnumerable<Argument> ParseArgTokens(
+    public static IEnumerable<Argument> ParseOptionTrailingArguments(
         this ArgsParser parser) {
 
         var args = new List<Argument>();
@@ -115,7 +115,7 @@ public static partial class ArgsParserFunctions {
             var arg = parser.Tokenizer.MaybeNextArgument();
 
             if (arg == null) {
-                
+
                 break;
             }
 
