@@ -31,6 +31,14 @@ public static partial class NeuReturnValueFunctions {
                 return true;
 
             ///
+
+            case NeuFloat f when 
+                returnType is NeuSimpleTypeId simpleTypeId && 
+                simpleTypeId.GetFirstOrDefault<NeuIdentifier>() is NeuIdentifier id &&
+                id.Source == "Float":
+                return true;
+
+            ///
                 
             default:
                 return false;

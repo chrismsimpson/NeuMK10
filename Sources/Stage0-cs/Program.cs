@@ -15,8 +15,9 @@ public static partial class Program {
         ///
 
         var files = new [] {
-            "test00.neu", // empty file, return void
-            "test01.neu"  // basic main, return zero
+            "test00.neu",  // empty file, return void
+            "test01.neu",  // basic main, return zero
+            "test02.neu",  // floats
         };
 
         ///
