@@ -23,7 +23,7 @@ public partial class NeuFunc: NeuValue {
 
 public static partial class NeuFuncFunctions {
 
-    public static NeuNode? GetBody(
+    public static NeuCodeBlock? GetBodyCodeBlock(
         this NeuFunc func) {
 
         if (func.Node is Node n) {

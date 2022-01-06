@@ -36,37 +36,10 @@ public static partial class NeuValueFunctions {
 
         switch (value) {
             
-            // case NeuBoolean b:
-            //     return b.Value 
-            //         ? "true"
-            //         : "false";
+            case NeuVoid _:
+                return "void";
 
-            // ///
-
-            // case NeuString s:
-            //     return s.Value;
-
-            // ///
-
-            // case NeuFloat f:
-            //     return $"{f.Value}";
-
-            // ///
-
-            // case NeuNull _:
-            //     return "null";
-
-            // ///
-
-            // case NeuUndefined _:
-            //     return "undefined";
-
-            // ///
-
-            // case NeuObject o:
-            //     return $"object";
-
-            // ///
+            ///
 
             case NeuInteger i:
                 return $"int: {i.Value}";

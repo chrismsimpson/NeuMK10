@@ -22,15 +22,16 @@ public static partial class NeuInterpreterFunctions {
 
             ///
 
-            var result = interpreter.Execute(child);
+            var childResult = interpreter.Execute(child);
 
             ///
 
-            switch (result) {
+            switch (childResult) {
 
                 case NeuReturnValue returnValue:
 
-                    lastValue = returnValue.Value ?? NeuValue.Void;
+                    lastValue = returnValue;
+                    // lastValue = returnValue.Value ?? NeuValue.Void;
 
                     done = true;
 
@@ -62,14 +63,27 @@ public static partial class NeuInterpreterFunctions {
             lastValue is NeuFunc func &&
             func.Name == "main") {
 
-            var body = func.GetBody();
+            var body = func.GetBodyCodeBlock();
 
             if (body == null) {
 
                 throw new Exception();
             }
 
-            lastValue = interpreter.Execute(body);
+            ///
+
+            var funcResult = interpreter.Execute(body) as NeuReturnValue;
+
+            if (funcResult == null) {
+
+                throw new Exception();
+            }
+
+            ///
+
+            ///
+
+            lastValue = funcResult.Value ?? NeuValue.Void;
         }
 
         ///
