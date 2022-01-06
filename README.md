@@ -71,9 +71,14 @@ $ neu ./path/to/some/source/file.neu
 
 **TODO:** Enable running by either building/compiling first or REPL mode.
 
-#### `tests`
+### Test Suite
 
 Run the test suite.
+
+Invoked via: 
+```
+$ neu tests
+```
 
 ### 
 
