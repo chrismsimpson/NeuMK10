@@ -51,7 +51,16 @@ Invoked via:
 $ neu build ./path/to/some/project
 ```
 
-### The `eval` command
+#### The REPL
+
+An interactive mode read edit print loop (REPL).
+
+Invoked via: 
+```
+$ neu
+```
+
+### Interactive mode
 
 Evaluate a source file.
 
@@ -61,15 +70,6 @@ $ neu ./path/to/some/source/file.neu
 ```
 
 **TODO:** Enable running by either building/compiling first or REPL mode.
-
-#### `interactive`
-
-An interactive mode read edit print loop (REPL).
-
-Invoked via: 
-```
-$ neu
-```
 
 #### `tests`
 
