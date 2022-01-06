@@ -115,6 +115,7 @@ public static partial class ArgsParserFunctions {
             var arg = parser.Tokenizer.MaybeNextArgument();
 
             if (arg == null) {
+                
                 break;
             }
 
