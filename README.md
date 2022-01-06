@@ -37,7 +37,7 @@ That said, early iterations of these IRs may not resemble their distant cousins 
 ## Stage 0
 
 Having vacillated over which language to start with and in my indecision have settled at two:
-- C# - ¯\\_(ツ)_/¯
+- C# - ¯\\\_(ツ)\_/¯
 - C - For the academics. No real plan to complete this. I have some opinions (don't we all) about things like treating char strictly like a byte and how UTF-8 ought be handled. Contributions definitely welcome here. Neu Mks 4 - 9 are all in C, and I have yet to rationalise down that code into this repo.
 
 ## Disclaimer
