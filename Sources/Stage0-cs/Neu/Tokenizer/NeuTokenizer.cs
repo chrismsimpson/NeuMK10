@@ -17,6 +17,12 @@ public partial class NeuTokenizer {
 
         return new NeuTokenizer(
             new StreamScanner(
-                NewFileStream(filename, readOnly: false)));
+                new FileStream(
+                    path: filename,
+                    mode: FileMode.Open,
+                    access: FileAccess.Read,
+                    share: FileShare.Read,
+                    bufferSize: 4096,
+                    useAsync: true)));
     }
 }

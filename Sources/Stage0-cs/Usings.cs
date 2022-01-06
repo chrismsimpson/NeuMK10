@@ -12,5 +12,4 @@ global using static System.IO.Directory;
 global using static System.IO.Path;
 
 global using static Neu.DirectoryFunctions;
-global using static Neu.FileStreamFunctions;
 global using static Neu.NeuTokenizer;
