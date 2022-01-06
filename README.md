@@ -37,8 +37,8 @@ That said, early iterations of these IRs may not resemble their distant cousins 
 ## Stage 0
 
 Having vacillated over which language to start with and in my indecision have settled at two:
-- C# - I want to get it done this century.
-- C - The purest of academics will simply only accept C (i.e. not even C++). This is a possible answer to such critics, however I have no serious plan to do this, I merely have some thoughts (read: ill informed opinions) about things like treating char strictly like a byte and how UTF-8 ought be handled. Contributions definitely welcome here. Neu Mks 4 - 9 are all in C, and I have yet to rationalise down that code into this repo.
+- C# - ¯\_(ツ)_/¯.
+- C - For the academics. No real plan to complete this. I have some opinions (don't we all) about things like treating char strictly like a byte and how UTF-8 ought be handled. Contributions definitely welcome here. Neu Mks 4 - 9 are all in C, and I have yet to rationalise down that code into this repo.
 
 ## Disclaimer
 
