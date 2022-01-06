@@ -3,11 +3,37 @@ namespace Neu;
 
 public static partial class Program {
 
-    public static void Main(
+    public static async Task Main(
         String[] args) {
 
-        WriteLine(args);
+        var arguments = args
+            .ToArguments();
 
-        WriteLine($"Hello foo");
+        ///
+
+        var name = arguments
+            .GetFirstArgumentSource();
+
+        ///
+
+        var command = arguments
+            .ToCommand();
+
+        var commandName = command.GetName();
+
+        ///
+
+        var stopwatch = Stopwatch.StartNew();
+
+        WriteLine($"\n//");
+        WriteLine($"//  neu {commandName}");
+        WriteLine($"//\n");
+
+        await command.Run(
+            arguments: arguments);
+
+        stopwatch.Stop();
+
+        WriteLine($"{commandName} completed in {stopwatch.GetElapsedString()}");
     }
 }

@@ -6,6 +6,7 @@ public static partial class NeuInterpreterFunctions {
     public static NeuValue Evaluate(
         this NeuInterpreter interpreter,
         String filename,
+        IEnumerable<IArgument> arguments,
         bool dumpAST = false) {
             
         var parser = NeuParser.FromFile(filename);
@@ -23,6 +24,6 @@ public static partial class NeuInterpreterFunctions {
 
         ///
 
-        return interpreter.Execute(source);
+        return interpreter.Execute(source, arguments);
     }
 }

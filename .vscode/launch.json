@@ -2,12 +2,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "neu ",
+            "name": "neu tests",
             "type": "coreclr",
             "request": "launch",
             "program": "${workspaceFolder}/Sources/Stage0-cs/Neu/bin/Debug/net6.0/Neu.dll",
             "args": [
-                
+                "tests"
             ],
             "cwd": "${workspaceFolder}/Sources",
             "console": "integratedTerminal",

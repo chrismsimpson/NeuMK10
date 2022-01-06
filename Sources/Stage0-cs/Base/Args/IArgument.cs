@@ -87,11 +87,17 @@ public static partial class IArgumentFunctions {
 
     ///
 
-    public static String? GetArgument(
-        this IEnumerable<IArgument> arguments,
-        int drop) {
+    public static String? GetFirstArgumentSource(
+        this IEnumerable<IArgument> arguments) {
 
-        foreach (var argument in arguments.DropArguments(number: drop)) {
+        return arguments.GetArgumentSource(distance: 0);
+    }
+
+    public static String? GetArgumentSource(
+        this IEnumerable<IArgument> arguments,
+        int distance) {
+
+        foreach (var argument in arguments.DropArguments(number: distance)) {
                 
             if (argument is Argument a) {
 
