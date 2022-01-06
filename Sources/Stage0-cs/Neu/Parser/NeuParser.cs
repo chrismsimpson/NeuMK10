@@ -13,9 +13,9 @@ public partial class NeuParser: Parser<NeuToken> {
 public partial class NeuParser {
 
     public static NeuParser FromFile(
-        String fullPath) {
+        String filename) {
             
         return new NeuParser(
-            NeuTokenizer.FromFile(fullPath));
+            NeuTokenizer.FromFile(filename));
     }
 }
