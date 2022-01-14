@@ -27,5 +27,4 @@ public static partial class NeuTokenizerFunctions {
                 return false;
         }
     }
-
 }

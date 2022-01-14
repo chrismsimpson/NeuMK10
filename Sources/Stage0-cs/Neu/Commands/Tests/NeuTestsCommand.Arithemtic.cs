@@ -1,9 +1,9 @@
 
 namespace Neu;
 
-public class NeuTestsBasicIntFuncCommand: NeuTestsCommand {
+public partial class NeuArithmeticTestCommand: NeuTestsCommand {
 
-    public NeuTestsBasicIntFuncCommand() { }
+    public NeuArithmeticTestCommand() { }
 
     ///
 
@@ -16,23 +16,23 @@ public class NeuTestsBasicIntFuncCommand: NeuTestsCommand {
 
             ///
 
-            var intResult = result as NeuInteger;
+            var floatResult = result as NeuFloat;
 
-            if (intResult == null) {
-
-                throw new Exception();
-            }
-
-            ///
-
-            if (intResult.Value != 0) {
+            if (floatResult == null) {
 
                 throw new Exception();
             }
 
             ///
 
-            WriteLine($"  Test {arguments.GetArgumentSource(distance: 1)} successful\n");
+            if (floatResult.Value != 2.5) {
+                
+                throw new Exception();
+            }
+
+            ///
+
+            WriteLine($"  Test {filename} successful\n");
         });
     }
 }

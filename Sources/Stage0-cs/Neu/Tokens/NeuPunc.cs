@@ -18,8 +18,14 @@ public enum NeuPuncType {
     Semicolon,
 
     Comma,
+    
     Equal,
-    Plus
+    Asterisk,
+    Slash,
+    Plus,
+    Hyphen
+
+
 }
 
 ///

@@ -200,4 +200,28 @@ public static partial class NeuTokenizerFunctions {
 
         return tokenizer.NextPunc('=', NeuPuncType.Equal);
     }
+
+    private static NeuPunc NextAsterisk(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextPunc('*', NeuPuncType.Asterisk);
+    }
+
+    private static NeuPunc NextSlash(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextPunc('/', NeuPuncType.Slash);
+    }
+
+    private static NeuPunc NextPlus(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextPunc('+', NeuPuncType.Plus);
+    }
+
+    private static NeuPunc NextHyphen(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextPunc('-', NeuPuncType.Hyphen);
+    }
 }

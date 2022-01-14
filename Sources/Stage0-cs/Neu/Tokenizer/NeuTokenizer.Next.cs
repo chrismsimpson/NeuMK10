@@ -63,8 +63,23 @@ public static partial class NeuTokenizerFunctions {
             case ',':
                 return tokenizer.NextComma();
 
+
+                /// Binary Operators (punc)
+
             case '=':
                 return tokenizer.NextEqual();
+
+            case '*':
+                return tokenizer.NextAsterisk();
+
+            case '/':
+                return tokenizer.NextSlash();
+
+            case '+':
+                return tokenizer.NextPlus();
+
+            case '-':
+                return tokenizer.NextHyphen();
 
 
 

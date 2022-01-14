@@ -10,7 +10,7 @@
                 "tests",
                 "--dump-ast"
             ],
-            "cwd": "${workspaceFolder}/Sources",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
             "stopAtEntry": false,
