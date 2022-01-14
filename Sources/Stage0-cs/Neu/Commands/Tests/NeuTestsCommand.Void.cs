@@ -29,17 +29,21 @@ public class NeuTestsVoidCommand: NeuTestsCommand {
 
             ///
 
-            WriteLine($"////////////////////////////////\n");
-
-            WriteLine($"// Running test {filename}\n");
+            WriteLine($"////////////////////////////////////////////////\n");
 
             ///
 
-            var result = interpreter.Evaluate(filename, droppedArgs, dumpAST: true);
+            var dumpAST = arguments.Get("--dump-ast") is String;
 
             ///
 
-            WriteLine($"Result: {result.Dump()}\n");
+            WriteLine($"  Running test {filename}{(dumpAST ? "\n" : "")}");
+
+            var result = interpreter.Evaluate(filename, droppedArgs, dumpAST: dumpAST, indent: 2);
+
+            ///
+
+            WriteLine($"  Result: {result.Dump()}");
 
             ///
 
@@ -52,7 +56,7 @@ public class NeuTestsVoidCommand: NeuTestsCommand {
 
             ///
 
-            WriteLine($"neu {arguments.GetArgumentSource(distance: 1)} successful\n");
+            WriteLine($"  Test {arguments.GetArgumentSource(distance: 1)} successful\n");
         });
     }
 }

@@ -50,15 +50,15 @@ public static partial class NodeFunctions {
 
     ///
     
-    public static String Dump(
-        this Node node) {
+    // public static String Dump(
+    //     this Node node) {
 
-        return node.Dump(indent: 0);
-    }
+    //     return node.Dump(indent: 0);
+    // }
 
     public static String Dump(
         this Node node,
-        int indent) {
+        int indent = 0) {
 
         var i = Indent(indent);
 

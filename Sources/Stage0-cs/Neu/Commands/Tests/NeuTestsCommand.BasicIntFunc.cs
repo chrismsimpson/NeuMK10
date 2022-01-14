@@ -31,15 +31,19 @@ public class NeuTestsBasicIntFuncCommand: NeuTestsCommand {
 
             WriteLine($"////////////////////////////////\n");
 
-            WriteLine($"// Running test {filename}\n");
+            ///
+
+            var dumpAST = arguments.Get("--dump-ast") is String;
 
             ///
 
-            var result = interpreter.Evaluate(filename, droppedArgs, dumpAST: true);
+            WriteLine($"  Running test {filename}{(dumpAST ? "\n" : "")}");
+
+            var result = interpreter.Evaluate(filename, droppedArgs, dumpAST: dumpAST, indent: 2);
 
             ///
 
-            WriteLine($"Result: {result.Dump()}\n");
+            WriteLine($"  Result: {result.Dump()}");
 
             ///
 
@@ -59,7 +63,7 @@ public class NeuTestsBasicIntFuncCommand: NeuTestsCommand {
 
             ///
 
-            WriteLine($"neu {arguments.GetArgumentSource(distance: 1)} successful\n");
+            WriteLine($"  Test {arguments.GetArgumentSource(distance: 1)} successful\n");
         });
     }
 }

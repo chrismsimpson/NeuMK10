@@ -7,7 +7,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/Sources/Stage0-cs/Neu/bin/Debug/net6.0/Neu.dll",
             "args": [
-                "tests"
+                "tests",
+                "--dump-ast"
             ],
             "cwd": "${workspaceFolder}/Sources",
             "console": "integratedTerminal",

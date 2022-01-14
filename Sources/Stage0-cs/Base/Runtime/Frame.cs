@@ -9,8 +9,8 @@ public abstract class Frame {
 
     public Frame(
         Node? node)
-        : base()
-    {
+        : base() {
+            
         this.Node = node;
     }
 }

@@ -8,7 +8,8 @@ public interface IArgument { }
 public static partial class IArgumentFunctions {
 
     public static IEnumerable<IArgument> ToArguments(
-        this String[] args) {
+        this IEnumerable<String> args) {
+        // this String[] args) {
 
         var parser = ArgsParser.FromArgs(args);
 
@@ -29,7 +30,16 @@ public static partial class IArgumentFunctions {
 
                 if (option.Name.Source == source) {
 
-                    return option.GetFirstArgument();
+                    if (option.Args.Count() == 0) {
+
+                        return option.Name.Source;
+                    }
+                    else {
+
+                        return option.Args.FirstOrDefault()?.Source;
+                    }
+
+                    // return option.GetFirstArgument();
                 }
             }
         }
@@ -141,5 +151,48 @@ public static partial class IArgumentFunctions {
         ///
 
         return false;
+    }
+
+    public static String[] ToArgs(
+        this IEnumerable<IArgument> arguments) {
+
+        var args = new List<String>();
+
+        ///
+
+        foreach (var argument in arguments) {
+
+            switch (argument) {
+
+                case Argument arg:
+
+                    args.Add(arg.Source);
+
+                    break;
+
+                ///
+
+                case Option option:
+
+                    args.Add(option.Name.Source);
+
+                    foreach (var a in option.Args) {
+
+                        args.Add(a.Source);
+                    }
+
+                    break;
+
+                ///
+                
+                default:
+
+                    break;
+            }
+        }
+
+        ///
+
+        return args.ToArray();
     }
 }

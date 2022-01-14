@@ -7,7 +7,8 @@ public static partial class NeuInterpreterFunctions {
         this NeuInterpreter interpreter,
         String filename,
         IEnumerable<IArgument> arguments,
-        bool dumpAST = false) {
+        bool dumpAST = false,
+        int indent = 0) {
             
         var parser = NeuParser.FromFile(filename);
 
@@ -19,7 +20,7 @@ public static partial class NeuInterpreterFunctions {
 
         if (dumpAST) {
 
-            WriteLine($"{source.Dump()}\n");
+            WriteLine($"{source.Dump(indent: indent)}\n");
         }
 
         ///
