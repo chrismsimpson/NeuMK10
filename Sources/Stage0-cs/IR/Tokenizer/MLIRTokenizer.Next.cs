@@ -1,12 +1,12 @@
 
-namespace LLIR;
+namespace IR;
 
-public static partial class LLIRTokenizerFunctions {
+public static partial class IRTokenizerFunctions {
 
     ///
 
-    private static LLIRToken Next(
-        this Tokenizer<LLIRToken> tokenizer) {
+    private static IRToken Next(
+        this Tokenizer<IRToken> tokenizer) {
 
         var peek = tokenizer.Scanner.Peek();
 
@@ -38,11 +38,11 @@ public static partial class LLIRTokenizerFunctions {
 
             /// Keywords
 
-            case 'd' when tokenizer.Scanner.MatchWithTrailingWhitespace(equals: "efine", distance: 1):
-                return tokenizer.NextDefine();
+            case 'f' when tokenizer.Scanner.MatchWithTrailingWhitespace(equals: "unc", distance: 1):
+                return tokenizer.NextFunc();
 
-            case 'r' when tokenizer.Scanner.MatchWithTrailingWhitespace(equals: "et", distance: 1):
-                return tokenizer.NextRet();
+            case 'r' when tokenizer.Scanner.MatchWithTrailingWhitespace(equals: "eturn", distance: 1):
+                return tokenizer.NextReturn();
 
 
 

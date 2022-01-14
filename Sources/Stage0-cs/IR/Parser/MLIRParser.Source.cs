@@ -1,10 +1,10 @@
 
-namespace MLIR;
+namespace IR;
 
-public static partial class MLIRParserFunctions {
+public static partial class IRParserFunctions {
 
-    public static MLIRParser ParseSource(
-        this MLIRParser parser) {
+    public static IRParser ParseSource(
+        this IRParser parser) {
 
         var start = parser.Tokenizer.GetLocation();
 
@@ -14,7 +14,6 @@ public static partial class MLIRParserFunctions {
 
         ///
 
-        
         throw new Exception();
     }
 }

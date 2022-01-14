@@ -15,8 +15,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\Base\Base.csproj" />
-    <ProjectReference Include="..\LLIR\LLIR.csproj" />
-    <ProjectReference Include="..\MLIR\MLIR.csproj" />
+    <ProjectReference Include="..\IR\IR.csproj" />
   </ItemGroup>
 
 </Project>

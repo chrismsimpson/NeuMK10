@@ -1,23 +1,23 @@
 
-namespace MLIR;
+namespace IR;
 
-public enum MLIRKeywordType {
+public enum IRKeywordType {
 
     Func,
     Return
 }
 
-public partial class MLIRKeyword: MLIRToken {
+public partial class IRKeyword: IRToken {
 
-    public MLIRKeywordType KeywordType { get; init; }
+    public IRKeywordType KeywordType { get; init; }
 
     ///
 
-    public MLIRKeyword(
+    public IRKeyword(
         String source,
         SourceLocation start,
         SourceLocation end,
-        MLIRKeywordType keywordType)
+        IRKeywordType keywordType)
         : base(source, start, end) {
             
         this.KeywordType = keywordType;

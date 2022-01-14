@@ -1,21 +1,21 @@
 
-namespace MLIR;
+namespace IR;
 
-public partial class MLIRTokenizer: Tokenizer<MLIRToken> {
+public partial class IRTokenizer: Tokenizer<IRToken> {
     
-    public MLIRTokenizer(
+    public IRTokenizer(
         IScanner scanner)
         : base(scanner) { }
 }
 
 ///
 
-public partial class MLIRTokenizer {
+public partial class IRTokenizer {
 
-    public static MLIRTokenizer FromFile(
+    public static IRTokenizer FromFile(
         String filename) {
 
-        return new MLIRTokenizer(
+        return new IRTokenizer(
             new StreamScanner(
                 new FileStream(
                     path: filename,

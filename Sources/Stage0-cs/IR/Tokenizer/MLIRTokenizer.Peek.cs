@@ -1,10 +1,10 @@
 
-namespace MLIR;
+namespace IR;
 
-public static partial class MLIRTokenizerFunctions {
+public static partial class IRTokenizerFunctions {
 
-    public static MLIRToken? Peek(
-        this Tokenizer<MLIRToken> tokenizer) {
+    public static IRToken? Peek(
+        this Tokenizer<IRToken> tokenizer) {
 
         if (tokenizer.Position + 1 <= tokenizer.Tokens.Count) {
 

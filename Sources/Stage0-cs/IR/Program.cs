@@ -1,5 +1,5 @@
 
-namespace LLIR;
+namespace IR;
 
 public static partial class Program {
     

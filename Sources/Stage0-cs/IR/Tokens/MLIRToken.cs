@@ -1,9 +1,9 @@
 
-namespace MLIR;
+namespace IR;
 
-public partial class MLIRToken: Token {
+public partial class IRToken: Token {
     
-    public MLIRToken(
+    public IRToken(
         String source,
         SourceLocation start,
         SourceLocation end)

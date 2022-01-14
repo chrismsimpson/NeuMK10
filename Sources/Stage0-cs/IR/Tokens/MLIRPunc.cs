@@ -1,7 +1,7 @@
 
-namespace LLIR;
+namespace IR;
 
-public enum LLIRPuncType {
+public enum IRPuncType {
 
     LeftParen,
     RightParen,
@@ -13,27 +13,27 @@ public enum LLIRPuncType {
     RightBracket
 }
 
-public partial class LLIRPunc: LLIRToken {
+public partial class IRPunc: IRToken {
     
-    public LLIRPuncType PuncType { get; init; }
+    public IRPuncType PuncType { get; init; }
 
     ///
 
-    public LLIRPunc(
+    public IRPunc(
         Char source,
         SourceLocation start,
         SourceLocation end,
-        LLIRPuncType puncType)
+        IRPuncType puncType)
         : base(new String(new Char[] { source }), start, end) {
 
         this.PuncType = puncType;
     }
 
-    public LLIRPunc(
+    public IRPunc(
         String source,
         SourceLocation start,
         SourceLocation end,
-        LLIRPuncType puncType)
+        IRPuncType puncType)
         : base(source, start, end) {
             
         this.PuncType = puncType;
