@@ -48,4 +48,11 @@ public static partial class NeuTokenizerFunctions {
 
         return tokenizer.MatchPunc(NeuPuncType.Comma);
     }
+
+    public static bool MatchSemicolon(
+        this Tokenizer<NeuToken> tokenizer) {
+            
+        return tokenizer.MatchPunc(NeuPuncType.Semicolon);
+    }
+
 }

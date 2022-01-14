@@ -9,13 +9,13 @@ public enum NeuBinaryOperatorType {
     Subtract
 }
 
-public partial class JSBinaryOperator: NeuOperator {
+public partial class NeuBinaryOperator: NeuOperator {
 
     public NeuBinaryOperatorType OperatorType { get; init; }
 
     ///
 
-    public JSBinaryOperator(
+    public NeuBinaryOperator(
         Char source,
         SourceLocation start,
         SourceLocation end,
@@ -25,7 +25,7 @@ public partial class JSBinaryOperator: NeuOperator {
         this.OperatorType = operatorType;
     }
 
-    public JSBinaryOperator(
+    public NeuBinaryOperator(
         String source,
         SourceLocation start,
         SourceLocation end,
@@ -38,10 +38,10 @@ public partial class JSBinaryOperator: NeuOperator {
 
 ///
 
-public static partial class JSBinaryOperatorFunctions {
+public static partial class NeuBinaryOperatorFunctions {
 
     public static int GetPrecedence(
-        this JSBinaryOperator op) {
+        this NeuBinaryOperator op) {
 
         switch (op.OperatorType) {
 

@@ -27,6 +27,15 @@ public static partial class NeuTokenizerFunctions {
 
         switch (peek) {
 
+            /// Comments
+
+            case '/' when tokenizer.Scanner.Match(equals: '/', distance: 1):
+                return tokenizer.NextLineEndComment();
+
+            case '/' when tokenizer.Scanner.Match(equals: '*', distance: 1):
+                return tokenizer.NextInlineComment();
+
+
             /// Arrow
 
             case '-' when tokenizer.Scanner.Match(equals: '>', distance: 1):
@@ -102,7 +111,7 @@ public static partial class NeuTokenizerFunctions {
 
             /// Identifiers
 
-            case Char c when IsIdentifierStart(c):
+            case Char c when IsNeuIdentifierStart(c):
                 return tokenizer.NextIdentifier();
 
 
