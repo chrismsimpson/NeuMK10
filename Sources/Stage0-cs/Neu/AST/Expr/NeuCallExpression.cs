@@ -14,8 +14,18 @@ public partial class NeuCallExpression: NeuExpression {
 
 public static partial class NeuCallExpressionFunctions {
 
+    public static String? GetName(
+        this NeuCallExpression callExpr) {
+
+        return callExpr.GetFirstOrDefault<NeuIdentifier>()?.Source;
+    }
+
     public static IEnumerable<Node> GetArguments(
         this NeuCallExpression callExpr) {
+
+        var args = new List<Node>();
+
+        ///
 
         var insideParen = false;
 
@@ -54,7 +64,9 @@ public static partial class NeuCallExpressionFunctions {
 
                 case var _ when insideParen:
 
-                    yield return child;
+                    args.Add(child);
+
+                    // yield return child;
 
                     break;
 
@@ -65,5 +77,9 @@ public static partial class NeuCallExpressionFunctions {
                     continue;
             }
         } 
+            
+        ///
+
+        return args;
     }
 }

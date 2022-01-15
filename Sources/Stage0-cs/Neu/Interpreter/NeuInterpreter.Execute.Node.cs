@@ -3,57 +3,57 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue? Execute(
-        this NeuInterpreter interpreter,
-        Node node) {
+    // public static NeuValue? Execute(
+    //     this NeuInterpreter interpreter,
+    //     Node node) {
 
-        switch (node) {
+    //     switch (node) {
 
-            case NeuDeclaration decl:
-                return interpreter.Execute(decl);
+    //         case NeuDeclaration decl:
+    //             return interpreter.Execute(decl);
 
-            ///
+    //         ///
 
-            case NeuStatement stmt:
-                return interpreter.Execute(stmt);
+    //         case NeuStatement stmt:
+    //             return interpreter.Execute(stmt);
 
-            ///
+    //         ///
         
-            case NeuExpression e:
-                return interpreter.Execute((Node)e);
+    //         case NeuExpression e:
+    //             return interpreter.Execute((Node)e);
 
-            ///
+    //         ///
 
-            case NeuIdentifier i:
-                return interpreter.Execute(i);
+    //         case NeuIdentifier i:
+    //             return interpreter.Execute(i);
 
-            ///
+    //         ///
 
-            case NeuLiteral l:
-                return interpreter.Execute(l);
+    //         case NeuLiteral l:
+    //             return interpreter.Execute(l);
 
-            ///
+    //         ///
 
-            // case NeuVariableDeclarator d:
-            //     return interpreter.Execute(d);
+    //         // case NeuVariableDeclarator d:
+    //         //     return interpreter.Execute(d);
 
-            ///
+    //         ///
             
-            case NeuPunc punc:
-                return null;
+    //         case NeuPunc punc:
+    //             return null;
 
-            ///
+    //         ///
 
-            case NeuNode neuNode:
-                return interpreter.Execute(neuNode);
+    //         case NeuNode neuNode:
+    //             return interpreter.Execute(neuNode);
 
-            ///
+    //         ///
 
-            default:
+    //         default:
                 
-                WriteLine("NO OP\n");
+    //             WriteLine("NO OP\n");
 
-                return NeuValue.Void;
-        }
-    }
+    //             return NeuValue.Void;
+    //     }
+    // }
 }

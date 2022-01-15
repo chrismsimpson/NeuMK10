@@ -18,3 +18,23 @@ public partial class NeuFuncParamList: NeuNode {
         SourceLocation end)
         : base(children, start, end) { }
 }
+
+///
+
+public static partial class NeuFuncParamListFunctions {
+
+    public static int Count(
+        this NeuFuncParamList list) {
+
+        switch (list.Children.Count()) {
+
+            case 0:
+                return 0;
+
+            ///
+
+            default:
+                throw new Exception();
+        }
+    }
+}

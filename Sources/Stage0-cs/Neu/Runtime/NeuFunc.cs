@@ -1,21 +1,16 @@
 
 namespace Neu;
 
-public partial class NeuFunc: NeuValue {
-
-    public String Name { get; init; }
-
-    public NeuNode Node { get; init; }
-
-    ///
+public partial class NeuFunc: NeuOperation {
 
     public NeuFunc(
         String name,
+        String? moduleName,
+        String? namespaceName,
+        String? typeName,
         NeuNode node)
-        : base() {
+        : base(name, moduleName, namespaceName, typeName, node) {
 
-        this.Name = name;
-        this.Node = node;
     }
 }
 
@@ -24,30 +19,37 @@ public partial class NeuFunc: NeuValue {
 public static partial class NeuFuncFunctions {
 
     public static NeuCodeBlock? GetBodyCodeBlock(
-        this NeuFunc func) {
+        this NeuOperation func) {
 
         return func.Node.GetFirstOrDefault<NeuCodeBlock>();
     }
 
     public static NeuFuncSignature? GetFuncSignature(
-        this NeuFunc func) {
+        this NeuOperation func) {
 
         return func.Node.GetFirstOrDefault<NeuFuncSignature>();
     }
 
+    public static NeuParamClause? GetParamClause(
+        this NeuOperation func) {
+        
+        return func
+            .GetFuncSignature()?
+            .GetParamClause();
+    }
+
+    public static NeuReturnClause? GetReturnClause(
+        this NeuOperation func) {
+
+        return func
+            .GetFuncSignature()?
+            .GetReturnClause();
+    }
+
     public static NeuNode? GetReturnType(
-        this NeuFunc func) {
+        this NeuOperation func) {
 
-        var funcSignature = func.GetFuncSignature();
-
-        if (funcSignature == null) {
-
-            throw new Exception();
-        }
-
-        ///
-
-        return funcSignature?
+        return func
             .GetReturnClause()?
             .GetFirstOrDefault<NeuNode>();
     }

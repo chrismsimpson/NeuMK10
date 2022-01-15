@@ -34,7 +34,7 @@ public static partial class NeuParserFunctions {
 
             case var p:
 
-                throw new Exception($"Unsupported: {p}"); 
+                throw new Exception($"Unsupported: {p}");
         }
     }
 

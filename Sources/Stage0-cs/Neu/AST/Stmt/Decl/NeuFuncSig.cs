@@ -12,6 +12,12 @@ public partial class NeuFuncSignature: NeuNode {
 
 public static partial class NeuFuncSignatureFunctions {
     
+    public static NeuParamClause? GetParamClause(
+        this NeuFuncSignature funcSignature) {
+
+        return funcSignature.GetFirstOrDefault<NeuParamClause>();
+    }
+
     public static NeuReturnClause? GetReturnClause(
         this NeuFuncSignature funcSignature) {
 

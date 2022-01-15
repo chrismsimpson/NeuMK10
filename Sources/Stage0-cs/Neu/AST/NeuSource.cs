@@ -49,3 +49,14 @@ public partial class NeuSourceMemory: NeuSource {
         this.Guid = guid;
     }
 }
+
+///
+
+public static partial class NeuSourceFunctions {
+
+    public static NeuCodeBlockItemList? GetCodeBlockItemList(
+        this NeuSource source) {
+
+        return source.GetFirstOrDefault<NeuCodeBlockItemList>();
+    }
+}

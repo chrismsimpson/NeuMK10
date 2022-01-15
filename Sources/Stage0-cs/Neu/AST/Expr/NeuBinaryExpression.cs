@@ -34,6 +34,7 @@ public static partial class NeuBinaryExpressionFunctions {
                 case NeuExpression _:
                 case NeuIdentifier _:
                 case NeuLiteral _:
+                
                     return child;
 
                 ///
@@ -43,6 +44,8 @@ public static partial class NeuBinaryExpressionFunctions {
                     continue;
             }
         }
+
+        ///
 
         throw new Exception();
     }
@@ -59,6 +62,7 @@ public static partial class NeuBinaryExpressionFunctions {
             switch (child) {
 
                 case NeuBinaryOperator op:
+
                     break;
 
                 ///
@@ -66,14 +70,18 @@ public static partial class NeuBinaryExpressionFunctions {
                 case NeuExpression _:
                 case NeuIdentifier _:
                 case NeuLiteral _:
+
                     return child;
 
                 ///
 
                 case NeuPunc p:
+
                     continue;
             }
         }
+
+        ///
 
         throw new Exception();
     }
@@ -86,14 +94,18 @@ public static partial class NeuBinaryExpressionFunctions {
             switch (child) {
                 
                 case NeuBinaryOperator o:
+
                     return o;
 
                 ///
 
                 default:
+
                     continue;
             }
         }
+
+        ///
         
         throw new Exception();
     }

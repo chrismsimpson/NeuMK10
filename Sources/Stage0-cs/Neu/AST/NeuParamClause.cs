@@ -9,3 +9,14 @@ public partial class NeuParamClause: Node {
         SourceLocation end)
         : base(children, start, end) { }
 }
+
+///
+
+public static partial class NeuParamClauseFunctions {
+
+    public static NeuFuncParamList? GetFuncParamList(
+        this NeuParamClause paramClause) {
+
+        return paramClause.GetFirstOrDefault<NeuFuncParamList>();
+    }
+}

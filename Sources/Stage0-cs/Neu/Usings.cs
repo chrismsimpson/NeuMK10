@@ -3,6 +3,7 @@ global using System.Diagnostics;
 global using System.Collections.Generic;
 global using System.Text;
 
+global using static System.Array;
 global using static System.Char;
 global using static System.Console;
 global using static System.DateTimeOffset;
@@ -16,3 +17,4 @@ global using Base;
 global using static Base.DirectoryFunctions;
 
 global using static Neu.NeuTokenizer;
+global using static Neu.NeuTokenizerFunctions;

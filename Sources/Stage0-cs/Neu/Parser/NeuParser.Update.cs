@@ -39,6 +39,14 @@ public static partial class NeuParserFunctions {
 
             switch (parser.Tokenizer.Peek()) {
 
+                case NeuPunc p when p.PuncType == NeuPuncType.LeftParen:
+
+                    var arguments = parser.ParseCallArguments();
+
+                    expr = parser.ParseCallExpression(start, expr, arguments);
+
+                    break;
+
                 ///
 
                 default:

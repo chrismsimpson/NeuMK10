@@ -37,7 +37,12 @@ public static partial class NeuInterpreterFunctions {
 
         ///
 
-        var func = new NeuFunc(name, funcDecl);
+        var func = interpreter.CreateFunc(name, null, null, null, funcDecl);
+
+        if (func == null) {
+
+            throw new Exception();
+        }
 
         ///
 
