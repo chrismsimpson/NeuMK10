@@ -89,5 +89,8 @@ public class NeuTestsCommand: ICommand {
 
         await new NeuArithmeticTestCommand()
             .Run(filename: "./Tests/Neu/test03.neu", args);
+
+        await new NeuVariableTestCommand()
+            .Run(filename: "./Tests/Neu/test04.neu", args);
     }
 }

@@ -151,12 +151,24 @@ public static partial class NeuTokenizerFunctions {
 
         switch (true) {
 
+            // /// Simple `: X = `
+
+            // case var _
+            //     when
+            //         tokenDistance1 is NeuPunc p1 && p1.PuncType == NeuPuncType.Equal &&
+            //         tokenDistance1Pos is int pos1:
+
+            //     throw new Exception();
+
+
+            /// Simple `-> X { return`
+
             case var _ 
                 when 
                     tokenDistance1 is NeuKeyword k1 && k1.KeywordType == NeuKeywordType.Return &&
-                    tokenDistance1Pos is int p1:
+                    tokenDistance1Pos is int pos1:
                     
-                var id = tokenizer.ReverseWalkFunctionReturnType(p1 - 1);
+                var id = tokenizer.ReverseWalkFunctionReturnType(pos1 - 1);
 
                 switch (id) {
 
@@ -186,7 +198,7 @@ public static partial class NeuTokenizerFunctions {
                 break;
 
 
-            ///
+            /// Simple `X {op}`
 
             case var _ 
                 when
@@ -231,6 +243,15 @@ public static partial class NeuTokenizerFunctions {
 
         ///
 
+        if (IsNullOrWhiteSpace(type)) {
+
+            type = source.Contains('.')
+                ? "Float"
+                : "Int";
+        }
+
+        ///
+
         switch (type) {
 
             case "Int":
@@ -244,10 +265,12 @@ public static partial class NeuTokenizerFunctions {
 
                 ///
 
+                var e = tokenizer.Scanner.GetLocation();
+
                 return new NeuIntegerLiteral(
                     source: source,
                     start: start,
-                    end: tokenizer.GetLocation(),
+                    end: e,
                     value: intValue);
 
             ///
@@ -266,7 +289,7 @@ public static partial class NeuTokenizerFunctions {
                 return new NeuFloatLiteral(
                     source: source,
                     start: start,
-                    end: tokenizer.GetLocation(),
+                    end: tokenizer.Scanner.GetLocation(),
                     value: floatValue);
 
             ///

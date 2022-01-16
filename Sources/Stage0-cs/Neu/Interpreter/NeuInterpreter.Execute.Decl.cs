@@ -14,8 +14,8 @@ public static partial class NeuInterpreterFunctions {
 
             ///
 
-            // case NeuVarDecl varDecl:
-            //     return interpreter.Execute(varDecl);
+            case NeuVarDecl varDecl:
+                return interpreter.Execute(varDecl);
 
             ///
             
@@ -24,28 +24,37 @@ public static partial class NeuInterpreterFunctions {
         }
     }
 
-    public static NeuValue Execute(
-        this NeuInterpreter interpreter,
-        NeuFuncDecl funcDecl) {
+    // public static NeuValue Execute(
+    //     this NeuInterpreter interpreter,
+    //     NeuFuncDecl funcDecl) {
 
-        var name = funcDecl.GetName();
+    //     var name = funcDecl.GetName();
 
-        if (name == null) {
+    //     if (name == null) {
 
-            throw new Exception();
-        }
+    //         throw new Exception();
+    //     }
 
-        ///
+    //     ///
 
-        var func = interpreter.CreateFunc(name, null, null, null, funcDecl);
+    //     var func = interpreter.CreateFunc(name, null, null, null, funcDecl);
 
-        if (func == null) {
+    //     if (func == null) {
 
-            throw new Exception();
-        }
+    //         throw new Exception();
+    //     }
 
-        ///
+    //     ///
 
-        return func;
-    }
+    //     return func;
+    // }
+
+    // public static NeuValue Execute(
+    //     this NeuInterpreter interpreter,
+    //     NeuVarDecl varDecl) {
+
+        
+
+    //     throw new Exception();
+    // }
 }

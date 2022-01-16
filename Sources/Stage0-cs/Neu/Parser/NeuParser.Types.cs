@@ -3,20 +3,21 @@ namespace Neu;
 
 public static partial class NeuParserFunctions {
 
-    public static NeuNode ParseType(
-        this NeuParser parser) {
+    // USE: ParseTypeIdentifier
+    // public static NeuNode ParseType(
+    //     this NeuParser parser) {
 
-        if (parser.Tokenizer.MatchLeftParen()) {
+    //     if (parser.Tokenizer.MatchLeftParen()) {
 
-            // TODO: handle closures here?
+    //         // TODO: handle closures here?
 
-            return parser.ParseTupleType();
-        }
+    //         return parser.ParseTupleType();
+    //     }
 
-        ///
+    //     ///
 
-        return parser.ParseSimpleTypeId();
-    }
+    //     return parser.ParseSimpleTypeId();
+    // }
 
     public static NeuNode ParseTupleType(
         this NeuParser parser) {

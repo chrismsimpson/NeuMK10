@@ -4,7 +4,9 @@ namespace Neu;
 public enum NeuKeywordType {
 
     Func,
-    Return
+    Return,
+    Var,
+    Let
 }
 
 public partial class NeuKeyword: NeuToken {

@@ -47,6 +47,8 @@ public static partial class NeuInterpreterFunctions {
         return op;
     }
 
+    ///
+
     public static bool OperationExists(
         this Interpreter<NeuFrame, NeuOperation> interpreter,
         String? name,
@@ -88,6 +90,8 @@ public static partial class NeuInterpreterFunctions {
         return false;
     }
 
+    ///
+
     public static IEnumerable<NeuOperation> GetOperations(
         this Interpreter<NeuFrame, NeuOperation> interpreter,
         String? name,
@@ -125,7 +129,6 @@ public static partial class NeuInterpreterFunctions {
             if (isMatch) {
 
                 ops.Add(op);
-                // yield return op;
             }
         }
 

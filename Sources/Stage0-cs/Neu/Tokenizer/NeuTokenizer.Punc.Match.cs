@@ -5,9 +5,9 @@ public static partial class NeuTokenizerFunctions {
 
     public static bool MatchPunc(
         this Tokenizer<NeuToken> tokenizer,
-        params NeuPuncType[] puncType) {
+        params NeuPuncType[] puncTypes) {
 
-        if (tokenizer.Peek() is NeuPunc p && puncType.Contains(p.PuncType)) {
+        if (tokenizer.Peek() is NeuPunc p && puncTypes.Contains(p.PuncType)) {
 
             return true;
         }
@@ -53,6 +53,24 @@ public static partial class NeuTokenizerFunctions {
         this Tokenizer<NeuToken> tokenizer) {
             
         return tokenizer.MatchPunc(NeuPuncType.Semicolon);
+    }
+
+    public static bool MatchSemicolonOrRightBrace(
+        this Tokenizer<NeuToken> tokenizer) {
+            
+        return tokenizer.MatchPunc(NeuPuncType.Semicolon, NeuPuncType.RightBrace);
+    }
+
+    public static bool MatchColon(
+        this Tokenizer<NeuToken> tokenizer) {
+            
+        return tokenizer.MatchPunc(NeuPuncType.Colon);
+    }
+
+    public static bool MatchEqual(
+        this Tokenizer<NeuToken> tokenizer) {
+            
+        return tokenizer.MatchPunc(NeuPuncType.Equal);
     }
 
 }

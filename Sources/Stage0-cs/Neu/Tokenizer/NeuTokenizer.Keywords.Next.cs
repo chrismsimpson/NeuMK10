@@ -5,9 +5,9 @@ public static partial class NeuTokenizerFunctions {
 
     public static NeuKeyword? MaybeNextKeyword(
         this Tokenizer<NeuToken> tokenizer,
-        NeuKeywordType keywordType) {
+        params NeuKeywordType[] keywordTypes) {
 
-        if (tokenizer.Peek() is NeuKeyword k && k.KeywordType == keywordType) {
+        if (tokenizer.Peek() is NeuKeyword k && keywordTypes.Contains(k.KeywordType)) {
 
             tokenizer.Position++;
 
@@ -29,6 +29,12 @@ public static partial class NeuTokenizerFunctions {
         this Tokenizer<NeuToken> tokenizer) {
 
         return tokenizer.MaybeNextKeyword(NeuKeywordType.Return);
+    }
+
+    public static NeuKeyword? MaybeNextLetOrVar(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.MaybeNextKeyword(NeuKeywordType.Let, NeuKeywordType.Var);
     }
 
     ///
@@ -74,5 +80,17 @@ public static partial class NeuTokenizerFunctions {
         this Tokenizer<NeuToken> tokenizer) {
 
         return tokenizer.NextKeyword("return", NeuKeywordType.Return);
+    }
+
+    private static NeuKeyword NextVar(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextKeyword("var", NeuKeywordType.Var);
+    }
+
+    private static NeuKeyword NextLet(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextKeyword("let", NeuKeywordType.Let);
     }
 }

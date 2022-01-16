@@ -23,11 +23,11 @@ public static partial class Program {
 
         ///
 
-        var stopwatch = Stopwatch.StartNew();
-
         WriteLine($"\n//");
         WriteLine($"//  neu {commandName}");
         WriteLine($"//\n");
+
+        var stopwatch = Stopwatch.StartNew();
 
         await command.Run(
             arguments: arguments);

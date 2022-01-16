@@ -32,6 +32,12 @@ public static partial class NeuParserFunctions {
 
             ///
 
+            case NeuKeyword keyword when keyword.KeywordType == NeuKeywordType.Var:
+
+                return parser.ParseVariableDeclaration();
+
+            ///
+
             case var p:
 
                 throw new Exception($"Unsupported: {p}");

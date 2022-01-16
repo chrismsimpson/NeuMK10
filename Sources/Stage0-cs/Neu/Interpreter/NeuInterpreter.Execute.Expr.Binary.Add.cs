@@ -11,6 +11,10 @@ public static partial class NeuInterpreterFunctions {
 
             return Add(lhsFloat, rhsFloat);
         }
+        else if (lhs is NeuInteger lhsInt && rhs is NeuInteger rhsInt) {
+
+            return Add(lhsInt, rhsInt);
+        }
         else {
 
             throw new Exception();
@@ -22,5 +26,12 @@ public static partial class NeuInterpreterFunctions {
         NeuFloat rhs) {
             
         return new NeuFloat(lhs.Value + rhs.Value);
+    }
+
+    public static NeuInteger Add(
+        NeuInteger lhs,
+        NeuInteger rhs) {
+            
+        return new NeuInteger(lhs.Value + rhs.Value);
     }
 }

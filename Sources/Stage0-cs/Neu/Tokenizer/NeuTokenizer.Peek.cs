@@ -22,6 +22,11 @@ public static partial class NeuTokenizerFunctions {
 
         var next = tokenizer.Next();
 
+        if (next == null) {
+
+            return null;
+        }
+
         tokenizer.Tokens.Add(next);
 
         return next;
