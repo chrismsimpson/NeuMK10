@@ -32,7 +32,7 @@ public class NeuTestsCommand: ICommand {
         await this.Run(args.ToArguments());
     }
 
-    public (String Filename, NeuValue? Value) Evaluate(
+    public (String Filename, NeuOperation? Result) Evaluate(
         IEnumerable<IArgument> arguments) {
 
         var interpreter = new NeuInterpreter();

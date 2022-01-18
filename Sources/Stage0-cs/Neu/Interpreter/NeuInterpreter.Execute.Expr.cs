@@ -3,15 +3,15 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Execute(
+    public static NeuOperation Execute(
         this NeuInterpreter interpreter,
         NeuExpression expr) {
 
         switch (expr) {
 
-            case NeuBinaryExpression binaryExpr:
+            case NeuInfixExpression infixExpr:
 
-                return interpreter.Execute(binaryExpr);
+                return interpreter.Execute(infixExpr);
 
             ///
 
@@ -23,6 +23,55 @@ public static partial class NeuInterpreterFunctions {
 
             default:
                 
+                throw new Exception();
+        }
+    }
+
+    public static NeuOperation Execute(
+        this NeuInterpreter interpreter,
+        NeuInfixExpression infixExpr) {
+
+        var lhsNode = infixExpr.GetLHSNode();
+
+        var lhsResult = interpreter.Execute(lhsNode);
+
+        ///
+
+        var rhsNode = infixExpr.GetRHSNode();
+
+        var rhsResult = interpreter.Execute(rhsNode);
+
+        ///
+
+        var op = infixExpr.GetOperator();
+
+        ///
+
+        return interpreter.Execute(op, lhsResult, rhsResult);
+    }
+
+    public static NeuOperation Execute(
+        this NeuInterpreter interpreter,
+        NeuInfixOperator op,
+        NeuOperation lhsResult,
+        NeuOperation rhsResult) {
+
+        switch (op) {
+
+            case NeuAssignOperator assignOp:
+
+                throw new Exception();
+
+            ///
+
+            case NeuBinaryOperator binaryOp:
+
+                return interpreter.Execute(binaryOp, lhsResult, rhsResult);
+
+            ///
+
+            default:
+
                 throw new Exception();
         }
     }

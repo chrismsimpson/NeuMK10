@@ -9,7 +9,6 @@ public static partial class IArgumentFunctions {
 
     public static IEnumerable<IArgument> ToArguments(
         this IEnumerable<String> args) {
-        // this String[] args) {
 
         var parser = ArgsParser.FromArgs(args);
 
@@ -38,11 +37,11 @@ public static partial class IArgumentFunctions {
 
                         return option.Args.FirstOrDefault()?.Source;
                     }
-
-                    // return option.GetFirstArgument();
                 }
             }
         }
+
+        ///
 
         return null;
     }

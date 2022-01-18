@@ -3,25 +3,36 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Add(
-        NeuValue lhs,
-        NeuValue rhs) {
+    public static NeuOperation Add(
+        this NeuInterpreter interpreter,
+        NeuOperation lhs,
+        NeuOperation rhs) {
 
-        if (lhs is NeuFloat lhsFloat && rhs is NeuFloat rhsFloat) {
+        switch (true) {
 
-            return Add(lhsFloat, rhsFloat);
-        }
-        else if (lhs is NeuInteger lhsInt && rhs is NeuInteger rhsInt) {
+            case var _ 
+                when
+                    lhs is NeuFloat lhsFloat && rhs is NeuFloat rhsFloat:
 
-            return Add(lhsInt, rhsInt);
-        }
-        else {
+                return interpreter.Add(lhsFloat, rhsFloat);
 
-            throw new Exception();
+            ///
+
+            case var _ when 
+                    lhs is NeuInteger lhsInt && rhs is NeuInteger rhsInt:  
+
+                return interpreter.Add(lhsInt, rhsInt);
+        
+            ///
+
+            default:
+
+                throw new Exception();
         }
     }
 
     public static NeuFloat Add(
+        this NeuInterpreter interpreter,
         NeuFloat lhs,
         NeuFloat rhs) {
             
@@ -29,6 +40,7 @@ public static partial class NeuInterpreterFunctions {
     }
 
     public static NeuInteger Add(
+        this NeuInterpreter interpreter,
         NeuInteger lhs,
         NeuInteger rhs) {
             

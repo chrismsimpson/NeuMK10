@@ -23,4 +23,12 @@ public static partial class NeuFuncSignatureFunctions {
 
         return funcSignature.GetFirstOrDefault<NeuReturnClause>();
     }
+
+    public static NeuTypeIdentifier? GetReturnClauseTypeIdentifier(
+        this NeuFuncSignature funcSignature) {
+
+        return funcSignature
+            .GetReturnClause()?
+            .GetTypeIdentifier();
+    }
 }

@@ -3,7 +3,7 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Execute(
+    public static NeuOperation Execute(
         this NeuInterpreter interpreter,
         NeuOperation op,
         IEnumerable<NeuArgument> args) {
@@ -21,22 +21,22 @@ public static partial class NeuInterpreterFunctions {
 
         ///
 
-        var opResult = interpreter.Execute(body, args) as NeuReturnValue;
+        var returnResult = interpreter.Execute(body, args) as NeuReturnResult;
 
-        if (opResult == null) {
+        if (returnResult == null) {
 
             throw new Exception();
         }
 
         ///
 
-        if (!opResult.Matches(returnType)) {
+        if (!returnResult.Matches(returnType)) {
 
             throw new Exception("Value does not match return type");
         }
 
         ///
 
-        return opResult.Value ?? NeuValue.Void;
+        return returnResult.Result ?? NeuOperation.Void;
     }
 }

@@ -3,7 +3,7 @@ namespace Neu;
 
 public static partial class NeuParserFunctions {
 
-    public static NeuVarDecl ParseVariableDeclaration(
+    public static NeuVarDecl ParseVarDecl(
         this NeuParser parser) {
 
         var start = parser.Tokenizer.GetLocation();

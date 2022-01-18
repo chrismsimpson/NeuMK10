@@ -42,9 +42,27 @@ public static partial class NeuParserFunctions {
 
         ///
 
+        var typeHint = signature.GetReturnClauseTypeIdentifier();
+
+        ///
+
+        if (typeHint is NeuTypeIdentifier pushHint) {
+
+            parser.Tokenizer.AddTypeHint(pushHint);
+        }
+
+        ///
+
         var codeBlock = parser.ParseCodeBlock();
 
         children.Add(codeBlock);
+
+        ///
+
+        if (typeHint is NeuTypeIdentifier popHint) {
+
+            parser.Tokenizer.RemoveTypeHint(popHint);
+        }
 
         ///
 
@@ -211,7 +229,6 @@ public static partial class NeuParserFunctions {
 
         ///
 
-        // var paramType = parser.ParseType();
         var paramType = parser.ParseTypeIdentifier();
 
         children.Add(paramType);
@@ -260,7 +277,6 @@ public static partial class NeuParserFunctions {
 
         ///
 
-        // var retType = parser.ParseType();
         var retType = parser.ParseTypeIdentifier();
 
         children.Add(retType);

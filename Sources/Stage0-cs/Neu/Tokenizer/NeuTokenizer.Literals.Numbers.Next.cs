@@ -1,23 +1,6 @@
 
 namespace Neu;
 
-public partial class NeuTokenizer {
-
-    public static bool IsNumberLiteralStart(
-        Char c) {
-
-        return c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9' || c == '.';
-    }
-
-    public static bool IsNumberLiteralPart(
-        Char c) {
-            
-        return c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9' || c == '.';
-    }
-}
-
-///
-
 public static partial class NeuTokenizerFunctions {
 
     public static NeuNumberLiteral? MaybeNextNumberLiteral(
@@ -55,19 +38,22 @@ public static partial class NeuTokenizerFunctions {
         return tokenizer.NextNumberLiteral(start, next);
     }
 
-    private static (NeuToken? Token, int? Position) ReverseWalkNextNonCommentToken(
+    private static NeuNumberLiteral NextNumberLiteral(
         this Tokenizer<NeuToken> tokenizer,
-        int pos) {
+        SourceLocation start,
+        String source) {
 
-        while (pos >= 0) {
+        String? rawHint = null;
 
-            var t = tokenizer.Tokens.ElementAt(pos);
+        ///
 
-            ///
+        if (tokenizer.GetTypeHint() is NeuTypeIdentifier typeId) {
 
-            switch (t) {
+            switch (typeId) {
 
-                case NeuComment _:
+                case NeuSimpleTypeId simpleTypeId when simpleTypeId.GetIdentifer() is NeuIdentifier id:
+
+                    rawHint = id.Source;
 
                     break;
 
@@ -75,184 +61,22 @@ public static partial class NeuTokenizerFunctions {
 
                 default:
 
-                    return (t, pos);
+                    break;
             }
-
-            ///
-
-            pos--;
         }
 
         ///
 
-        return (null, null);
-    }
+        if (IsNullOrWhiteSpace(rawHint)) {
 
-    private static NeuIdentifier? ReverseWalkFunctionReturnType(
-        this Tokenizer<NeuToken> tokenizer,
-        int startPos) {
-
-        var pos = startPos;
-
-        ///
-
-        var (tokenDistance2, tokenDistance2Pos) = tokenizer.ReverseWalkNextNonCommentToken(pos);
-
-        var p2 = tokenDistance2 as NeuPunc;
-
-        if (p2 == null || p2.PuncType != NeuPuncType.LeftBrace || tokenDistance2Pos == null) {
-
-            return null;
-        }
-
-        ///
-
-        var (tokenDistance3, tokenDistance3Pos) = tokenizer.ReverseWalkNextNonCommentToken(tokenDistance2Pos.Value - 1);
-
-        var id3 = tokenDistance3 as NeuIdentifier;
-
-        if (id3 == null || tokenDistance3Pos == null) {
-
-            return null;
-        }
-
-        ///
-
-        var (tokenDistance4, tokenDistance4Pos) = tokenizer.ReverseWalkNextNonCommentToken(tokenDistance3Pos.Value - 1);
-
-        var p4 = tokenDistance4 as NeuPunc;
-
-        if (p4 == null || p4.PuncType != NeuPuncType.Arrow || tokenDistance4Pos == null) {
-
-            return null;
-        }
-
-        ///
-
-        return id3;
-    }
-
-    private static NeuNumberLiteral NextNumberLiteral(
-        this Tokenizer<NeuToken> tokenizer,
-        SourceLocation start,
-        String source) {
-
-        var pos = tokenizer.Position - 1;
-
-        ///
-
-        var (tokenDistance1, tokenDistance1Pos) = tokenizer.ReverseWalkNextNonCommentToken(pos);
-
-        ///
-
-        String? type = null;
-
-        ///
-
-        switch (true) {
-
-            // /// Simple `: X = `
-
-            // case var _
-            //     when
-            //         tokenDistance1 is NeuPunc p1 && p1.PuncType == NeuPuncType.Equal &&
-            //         tokenDistance1Pos is int pos1:
-
-            //     throw new Exception();
-
-
-            /// Simple `-> X { return`
-
-            case var _ 
-                when 
-                    tokenDistance1 is NeuKeyword k1 && k1.KeywordType == NeuKeywordType.Return &&
-                    tokenDistance1Pos is int pos1:
-                    
-                var id = tokenizer.ReverseWalkFunctionReturnType(pos1 - 1);
-
-                switch (id) {
-
-                    case NeuIdentifier i when i.Source == "Int":
-
-                        type = "Int";
-
-                        break;
-
-                    ///
-
-                    case NeuIdentifier i when i.Source == "Float":
-
-                        type = "Float";
-
-                        break;
-                    
-                    ///
-
-                    default:
-
-                        break;
-                }
-
-                ///
-
-                break;
-
-
-            /// Simple `X {op}`
-
-            case var _ 
-                when
-                    tokenDistance1 is NeuBinaryOperator b1 &&
-                    tokenDistance1Pos is int p1:
-
-                var (tokenDistance2, tokenDistance2Pos) = tokenizer.ReverseWalkNextNonCommentToken(p1 - 1);
-
-                switch (tokenDistance2) {
-
-                    case NeuIntegerLiteral _ when tokenDistance2Pos is int:
-
-                        type = "Int";
-
-                        break;
-
-                    ///
-
-                    case NeuFloatLiteral _ when tokenDistance2Pos is int:
-
-                        type = "Float";
-
-                        break;
-
-                    ///
-
-                    default:
-
-                        break;
-                }
-
-                ///
-
-                break;
-
-            ///
-
-            default:
-
-                break;
-        }
-
-        ///
-
-        if (IsNullOrWhiteSpace(type)) {
-
-            type = source.Contains('.')
+            rawHint = source.Contains('.')
                 ? "Float"
                 : "Int";
         }
 
         ///
 
-        switch (type) {
+        switch (rawHint) {
 
             case "Int":
 

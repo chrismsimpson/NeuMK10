@@ -1,7 +1,7 @@
 
 namespace Neu;
 
-public static partial class NeuParserFunction {
+public static partial class NeuParserFunctions {
 
     public static NeuIdentifierPattern ParseIdentifierPattern(
         this NeuParser parser) {

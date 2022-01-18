@@ -66,6 +66,15 @@ public static partial class NeuParserFunctions {
 
         var pattern = parser.ParsePattern();
 
+        if (pattern == null) {
+
+            throw new Exception();
+        }
+
+        children.Add(pattern);
+
+        ///
+
         if (parser.Tokenizer.MatchColon()) {
 
             var annotation = parser.ParseTypeAnnotation();

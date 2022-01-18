@@ -7,7 +7,7 @@ public static partial class NeuInterpreterFunctions {
         this NeuInterpreter interpreter,
         NeuNode node) {
 
-        interpreter.Stack.Push(new NeuFrame(node));
+        interpreter.Stack.Push(new NeuScopeFrame(node));
     }
 
     public static void Exit(

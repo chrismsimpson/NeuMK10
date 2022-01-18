@@ -8,10 +8,10 @@ public static partial class IArgumentFunctions {
 
         switch (arguments.GetFirstArgumentSource()) {
 
-            /// Build
+            // /// Build
 
-            case "build":
-                return arguments.ToBuildCommand();
+            // case "build":
+            //     return arguments.ToBuildCommand();
 
 
 
@@ -22,17 +22,17 @@ public static partial class IArgumentFunctions {
 
 
 
-            /// Eval
+            // /// Eval
 
-            case String source when source.ToAbsolutePathString() is String:
-                return arguments.ToEvalCommand();
+            // case String source when source.ToAbsolutePathString() is String:
+            //     return arguments.ToEvalCommand();
 
 
 
-            /// Interactive
+            // /// Interactive
 
-            case var _ when arguments.Count() == 1:
-                return arguments.ToInteractiveCommand();
+            // case var _ when arguments.Count() == 1:
+            //     return arguments.ToInteractiveCommand();
 
 
 

@@ -3,7 +3,7 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Execute(
+    public static NeuOperation Execute(
         this NeuInterpreter interpreter,
         NeuLiteral literal) {
 
@@ -17,10 +17,9 @@ public static partial class NeuInterpreterFunctions {
             default:
                 throw new Exception();
         }
-
     }
 
-    public static NeuValue Execute(
+    public static NeuOperation Execute(
         this NeuInterpreter interpreter,
         NeuNumberLiteral numberLiteral) {
 
@@ -43,35 +42,4 @@ public static partial class NeuInterpreterFunctions {
                 throw new Exception();
         }
     }
-
-    // public static NeuValue Execute(
-    //     this NeuInterpreter interpreter,
-    //     Node node) {
-
-    //     switch (node) {
-            
-    //         case NeuExpression e:
-    //             return interpreter.Execute(e);
-
-    //         ///
-
-    //         case NeuIdentifier i:
-    //             return interpreter.Execute(i);
-
-    //         ///
-
-    //         case NeuLiteral l:
-    //             return interpreter.Execute(l);
-
-    //         ///
-
-    //         // case NeuVariableDeclarator d:
-    //         //     return interpreter.Execute(d);
-
-    //         ///
-
-    //         default:
-    //             throw new Exception();
-    //     }
-    // }
 }

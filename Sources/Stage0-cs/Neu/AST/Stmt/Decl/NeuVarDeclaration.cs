@@ -43,4 +43,30 @@ public static partial class NeuVarDeclFunctions {
 
         return null;
     }
+
+    ///
+
+    public static NeuPatternBindingList? GetPatternBindingList(
+        this NeuVarDecl varDecl) {
+
+        foreach (var child in varDecl.Children) {
+
+            switch (child) {
+
+                case NeuPatternBindingList l:
+
+                    return l;
+
+                ///
+
+                default:
+
+                    break;
+            }
+        }
+
+        ///
+
+        return null;
+    }
 }

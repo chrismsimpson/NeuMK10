@@ -22,12 +22,19 @@ public static partial class NeuFuncDeclFunctions {
             switch (child) {
 
                 case NeuIdentifier id:
+
                     return id.Source;
 
+                ///
+
                 case NeuPunc _:
+
                     return null;
 
+                ///
+
                 default:
+
                     break;
             }
         }

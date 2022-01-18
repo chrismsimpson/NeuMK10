@@ -56,31 +56,15 @@ public static partial class NeuParserFunctions {
 
         switch (parser.Tokenizer.Peek()) {
 
-            case NeuKeyword keyword when keyword.KeywordType == NeuKeywordType.Func:
-            
-                return parser.ParseFuncDecl();
-
-            /// Comments
-
             case NeuComment _:
-
+                
                 return parser.ParseStatementAfterDroppingComments();
-
+                
             ///
 
             default:
 
                 return parser.ParseStatement();
-
-            // ///
-
-            // case NeuKeyword keyword when keyword.KeywordType == NeuKeywordType.Return:
-            //     return parser.ParseReturnStatement();
-
-            // ///
-
-            // default:
-            //     return null;
         }
     }
 
