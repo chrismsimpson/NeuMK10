@@ -3,45 +3,31 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Execute(
+    public static NeuOperation Execute(
         this NeuInterpreter interpreter,
-        NeuBinaryExpression binaryExpression) {
-
-        var lhsNode = binaryExpression.GetLHSNode();
-
-        var lhsValue = interpreter.Execute(lhsNode);
-
-        ///
-
-        var rhsNode = binaryExpression.GetRHSNode();
-
-        var rhsValue = interpreter.Execute(rhsNode);
-
-        ///
-
-        var op = binaryExpression.GetOperator();
-
-        ///
+        NeuBinaryOperator op,
+        NeuOperation lhsResult,
+        NeuOperation rhsResult) {
 
         switch (op.OperatorType) {
-            
+
             case NeuBinaryOperatorType.Multiply:
-                return Multiply(lhsValue, rhsValue);
+                return interpreter.Multiply(lhsResult, rhsResult);
 
             ///
 
             case NeuBinaryOperatorType.Divide:
-                return Divide(lhsValue, rhsValue);
+                return interpreter.Divide(lhsResult, rhsResult);
 
             ///
 
             case NeuBinaryOperatorType.Add:
-                return Add(lhsValue, rhsValue);
+                return interpreter.Add(lhsResult, rhsResult);
 
             ///
 
             case NeuBinaryOperatorType.Subtract:
-                return Subtract(lhsValue, rhsValue);
+                return interpreter.Subtract(lhsResult, rhsResult);
 
             ///
 

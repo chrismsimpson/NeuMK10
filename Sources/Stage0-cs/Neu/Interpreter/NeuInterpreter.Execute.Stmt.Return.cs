@@ -3,7 +3,7 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Execute(
+    public static NeuOperation Execute(
         this NeuInterpreter interpreter,
         NeuReturnStatement retStmt) {
 
@@ -16,10 +16,10 @@ public static partial class NeuInterpreterFunctions {
 
         ///
 
-        var value = interpreter.Execute(argument);
+        var result = interpreter.Execute(argument);
 
         ///
 
-        return new NeuReturnValue(value);
+        return new NeuReturnResult(result);
     }
 }

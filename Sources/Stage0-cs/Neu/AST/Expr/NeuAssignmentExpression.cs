@@ -1,7 +1,7 @@
 
 namespace Neu;
 
-public partial class NeuAssignmentExpression: NeuExpression {
+public partial class NeuAssignmentExpression: NeuInfixExpression {
 
     public NeuAssignmentExpression(
         IEnumerable<Node> children,

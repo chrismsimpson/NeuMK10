@@ -27,10 +27,4 @@ public static partial class OptionFunctions {
 
         return option.Name.Source;
     }
-
-    // public static String? GetFirstArgument(
-    //     this Option option) {
-            
-    //     return option.Args.FirstOrDefault()?.Source;
-    // }
 }

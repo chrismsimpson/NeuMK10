@@ -3,7 +3,7 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Execute(
+    public static NeuOperation Execute(
         this NeuInterpreter interpreter,
         NeuFuncDecl funcDecl) {
 
@@ -27,5 +27,4 @@ public static partial class NeuInterpreterFunctions {
 
         return func;
     }
-
 }

@@ -8,17 +8,17 @@ public static partial class NeuTokenizerFunctions {
 
         switch (tokenizer.Peek()) {
 
-            case NeuBinaryOperator bo:
+            case NeuBinaryOperator binaryOp:
 
-                return bo;
+                return binaryOp;
 
             ///
 
-            case NeuToken t when ToNeuBinaryOperator(t) is NeuBinaryOperator bo:
+            case NeuToken t when ToNeuBinaryOperator(t) is NeuBinaryOperator binaryOp:
 
-                tokenizer.Tokens[tokenizer.Position] = bo;
+                tokenizer.Tokens[tokenizer.Position] = binaryOp;
 
-                return bo;
+                return binaryOp;
 
             ///
 

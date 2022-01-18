@@ -46,4 +46,50 @@ public static partial class NeuPatternBindingFunctions {
 
         return e.LineNumber > s.LineNumber;
     }
+
+    ///
+
+    public static NeuPattern? GetPattern(
+        this NeuPatternBinding patternBinding) {
+
+        return patternBinding.GetFirstOrDefault<NeuPattern>();
+    }
+
+    ///
+
+    public static NeuNode? GetBinding(
+        this NeuPatternBinding patternBinding) {
+
+        var patternReached = false;
+
+        ///
+
+        foreach (var c in patternBinding.Children) {
+
+            switch (c) {
+
+                case NeuPattern _ when !patternReached: // only toggle on a single pattern
+
+                    patternReached = true;
+
+                    break;
+
+                ///
+
+                case NeuNode n when patternReached:
+
+                    return n;
+
+                ///
+
+                default:
+
+                    continue;
+            }
+        }
+
+        ///
+
+        return null;
+    }
 }

@@ -61,5 +61,4 @@ public static partial class NeuParserFunctions {
 
         return expr;
     }
-
 }

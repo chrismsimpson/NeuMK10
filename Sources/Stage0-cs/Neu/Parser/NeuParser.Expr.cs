@@ -10,7 +10,7 @@ public static partial class NeuParserFunctions {
 
         ///
 
-        var assignment = parser.ParseAssignment();
+        var operation = parser.ParseOperation();
 
         ///
 
@@ -23,6 +23,6 @@ public static partial class NeuParserFunctions {
 
         ///
 
-        return assignment;
+        return operation;
     }
 }

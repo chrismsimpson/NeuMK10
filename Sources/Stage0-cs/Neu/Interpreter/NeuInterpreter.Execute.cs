@@ -3,7 +3,7 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Execute(
+    public static NeuOperation Execute(
         this NeuInterpreter interpreter,
         NeuNode node,
         params object[] arguments) {
@@ -11,10 +11,26 @@ public static partial class NeuInterpreterFunctions {
         interpreter.Enter(node);
 
         ///
+        
+        
 
-        NeuValue lastValue = NeuValue.Void;
+        ///
+
+            // TODO: Add hoists
+
+        ///
+
+        var enterStackPos = interpreter.Stack.Count();
+
+        ///
+
+        var lastValue = NeuOperation.Void;
+
+        ///
 
         var done = false;
+
+        ///
 
         for (var i = 0; i < node.Children.Count() && !done; i++) {
 
@@ -35,10 +51,9 @@ public static partial class NeuInterpreterFunctions {
 
             switch (childResult) {
 
-                case NeuReturnValue returnValue:
+                case NeuReturnResult returnResult:
 
-                    lastValue = returnValue;
-                    // lastValue = returnValue.Value ?? NeuValue.Void;
+                    lastValue = returnResult;
 
                     done = true;
 
@@ -62,45 +77,31 @@ public static partial class NeuInterpreterFunctions {
 
         ///
 
-        interpreter.Exit(node);
+        var exitStackPos = interpreter.Stack.Count();
 
         ///
 
-        // if (interpreter.Stack.Count == 0 && 
-        //     lastValue is NeuFunc func &&
-        //     func.Name == "main") {
+        var additionalStackFrames = exitStackPos - enterStackPos;
 
-        //     var returnType = func.GetReturnType();
+        if (additionalStackFrames > 0) {
 
-        //     ///
+            for (var i = additionalStackFrames; i > 0; --i) {
 
-        //     var body = func.GetBodyCodeBlock();
+                interpreter.Stack.Pop();
+            }
+        }
+        else if (additionalStackFrames < 0) {
 
-        //     if (body == null) {
+            throw new Exception();
+        }
 
-        //         throw new Exception();
-        //     }
+        ///
 
-        //     ///
+            // TODO: Unhoist
 
-        //     var funcResult = interpreter.Execute(body) as NeuReturnValue;
+        ///
 
-        //     if (funcResult == null) {
-
-        //         throw new Exception();
-        //     }
-
-        //     ///
-
-        //     if (!funcResult.Matches(returnType)) {
-
-        //         throw new Exception("Value does not match return type");
-        //     }
-
-        //     ///
-
-        //     lastValue = funcResult.Value ?? NeuValue.Void;
-        // }
+        interpreter.Exit(node);
 
         ///
 
@@ -108,11 +109,13 @@ public static partial class NeuInterpreterFunctions {
     }
 
 
-    public static NeuValue Execute(
+    public static NeuOperation Execute(
         this NeuInterpreter interpreter,
         Node node) {
 
         switch (node) {
+
+            /// AST Nodes
 
             case NeuDeclaration decl:
                 return interpreter.Execute(decl);
@@ -129,30 +132,19 @@ public static partial class NeuInterpreterFunctions {
 
             ///
 
-            // case NeuIdentifier i:
-            //     return interpreter.Execute(i);
+            case NeuNode neuNode:
+
+                return interpreter.Execute(neuNode);
+
+            /// Tokens
+
+            case NeuLiteral literal:
+                return interpreter.Execute(literal);
 
             ///
 
-            case NeuLiteral l:
-                return interpreter.Execute(l);
-
-            ///
-
-            // case NeuVariableDeclarator d:
-            //     return interpreter.Execute(d);
-
-            case NeuCodeBlockItemList list:
-
-                return interpreter.Execute(list);
-
-            ///
-            
-            // case NeuPunc punc:
-
-            //     // Silent no-op
-                
-            //     return NeuValue.Void;
+            case NeuIdentifier id:
+                return interpreter.Execute(id);
 
             ///
 

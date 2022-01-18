@@ -3,25 +3,36 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Divide(
-        NeuValue lhs,
-        NeuValue rhs) {
+    public static NeuOperation Divide(
+        this NeuInterpreter interpreter,
+        NeuOperation lhs,
+        NeuOperation rhs) {
 
-        if (lhs is NeuFloat lhsFloat && rhs is NeuFloat rhsFloat) {
+        switch (true) {
 
-            return Divide(lhsFloat, rhsFloat);
-        }
-        else if (lhs is NeuInteger lhsInt && rhs is NeuInteger rhsInt) {
+            case var _ 
+                when
+                    lhs is NeuFloat lhsFloat && rhs is NeuFloat rhsFloat:
 
-            return Divide(lhsInt, rhsInt);
-        }
-        else {
+                return interpreter.Divide(lhsFloat, rhsFloat);
+                
+            ///
 
-            throw new Exception();
+            case var _ when 
+                    lhs is NeuInteger lhsInt && rhs is NeuInteger rhsInt:  
+
+                return interpreter.Divide(lhsInt, rhsInt);
+
+            ///
+
+            default:
+
+                throw new Exception();
         }
     }
 
     public static NeuFloat Divide(
+        this NeuInterpreter interpreter,
         NeuFloat lhs,
         NeuFloat rhs) {
             
@@ -29,6 +40,7 @@ public static partial class NeuInterpreterFunctions {
     }
 
     public static NeuInteger Divide(
+        this NeuInterpreter interpreter,
         NeuInteger lhs,
         NeuInteger rhs) {
             

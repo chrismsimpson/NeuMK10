@@ -3,52 +3,6 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuFunc? CreateFunc(
-        this Interpreter<NeuFrame, NeuOperation> interpreter,
-        String name,
-        String? moduleName,
-        String? namespaceName,
-        String? typeName,
-        NeuNode node) {
-
-        if (interpreter.OperationExists(name, moduleName, namespaceName, typeName)) {
-
-            throw new Exception();
-        }
-
-        ///
-
-        var func = new NeuFunc(name, moduleName, namespaceName, typeName, node);
-
-        interpreter.VTable.Add(func);
-
-        return func;
-    }
-
-    public static NeuOperation? CreateOperation(
-        this Interpreter<NeuFrame, NeuOperation> interpreter,
-        String? name,
-        String? moduleName,
-        String? namespaceName,
-        String? typeName,
-        NeuNode node) {
-
-        if (interpreter.OperationExists(name, moduleName, namespaceName, typeName)) {
-
-            throw new Exception();
-        }
-
-        ///
-
-        var op = new NeuOperation(name, moduleName, namespaceName, typeName, node);
-
-        interpreter.VTable.Add(op);
-
-        return op;
-    }
-
-    ///
-
     public static bool OperationExists(
         this Interpreter<NeuFrame, NeuOperation> interpreter,
         String? name,
@@ -183,25 +137,5 @@ public static partial class NeuInterpreterFunctions {
         ///
 
         return candidate.Name == name;
-
-        //     // Module name missing
-
-        //     // Namespace name missing
-
-        //     // Type name missing
-
-        //     ///
-
-        //     /// Module name and namespace missing
-
-        //     /// Namespace 
-
-        // String? moduleName,
-        // String? namespaceName,
-        // String? typeName,
-
-
-        // return 
-
     }
 }

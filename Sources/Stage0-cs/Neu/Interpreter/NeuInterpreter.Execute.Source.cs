@@ -3,7 +3,7 @@ namespace Neu;
 
 public static partial class NeuInterpreterFunctions {
 
-    public static NeuValue Execute(
+    public static NeuOperation Execute(
         this NeuInterpreter interpreter,
         NeuSource source,
         IEnumerable<IArgument> arguments) {
@@ -19,7 +19,7 @@ public static partial class NeuInterpreterFunctions {
 
         if (codeBlockItemList.Children.Count() == 0) {
 
-            return NeuValue.Void;
+            return NeuOperation.Void;
         }
 
         ///
@@ -75,7 +75,7 @@ public static partial class NeuInterpreterFunctions {
 
         ///
 
-        var lastValue = NeuValue.Void;
+        var lastValue = NeuOperation.Void;
 
         ///
 

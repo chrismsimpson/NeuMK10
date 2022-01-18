@@ -69,7 +69,7 @@ public static partial class NeuParserFunctions {
 
                     default:
 
-                        nodes.Add(parser.ParseAssignment());
+                        nodes.Add(parser.ParseOperation());
 
                         break;
                 }
