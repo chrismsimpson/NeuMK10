@@ -47,7 +47,7 @@ Invoked via:
 $ neu build ./path/to/some/project
 ```
 
-#### The REPL
+### The REPL
 
 An interactive mode read edit print loop (REPL).
 
