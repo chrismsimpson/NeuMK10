@@ -76,6 +76,12 @@ public static partial class NeuPatternBindingFunctions {
 
                 ///
 
+                case NeuTypeAnnotation _:
+
+                    break;
+
+                ///
+
                 case NeuNode n when patternReached:
 
                     return n;
@@ -84,7 +90,7 @@ public static partial class NeuPatternBindingFunctions {
 
                 default:
 
-                    continue;
+                    break;
             }
         }
 

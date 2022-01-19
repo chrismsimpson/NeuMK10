@@ -14,10 +14,24 @@ public partial class NeuCallExpression: NeuExpression {
 
 public static partial class NeuCallExpressionFunctions {
 
+    public static NeuIdentifierExpression? GetIdentifierExpression(
+        this NeuCallExpression callExpr) {
+
+        return callExpr.GetFirstOrDefault<NeuIdentifierExpression>();
+    }
+
+    public static NeuIdentifier? GetIdentifier(
+        this NeuCallExpression callExpr) {
+
+        return callExpr
+            .GetIdentifierExpression()?
+            .GetIdentifier();
+    }
+
     public static String? GetName(
         this NeuCallExpression callExpr) {
 
-        return callExpr.GetFirstOrDefault<NeuIdentifier>()?.Source;
+        return callExpr.GetIdentifier()?.Source;
     }
 
     public static IEnumerable<Node> GetArguments(

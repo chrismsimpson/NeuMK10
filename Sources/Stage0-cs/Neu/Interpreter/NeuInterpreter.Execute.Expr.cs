@@ -21,6 +21,24 @@ public static partial class NeuInterpreterFunctions {
 
             ///
 
+            case NeuNumberLiteralExpression numberLitExpr:
+
+                return interpreter.Execute(numberLitExpr);
+
+            ///
+
+            case NeuIdentifierExpression idExpr:
+
+                return interpreter.Execute(idExpr);
+
+            ///
+
+            case NeuPostfixExpression postfixExpr:
+
+                return interpreter.Execute(postfixExpr);
+
+            ///
+
             default:
                 
                 throw new Exception();

@@ -21,18 +21,27 @@ public static partial class NeuReturnStatementFunctions {
 
             switch (child) {
 
-                case NeuExpression e:
-                    return e;
+                case NeuExpression expr:
+
+                    return expr;
 
                 ///
 
-                case NeuLiteral l:
-                    return l;
+                case NeuLiteral lit:
+
+                    return lit;
+
+                ///
+
+                case NeuIdentifier id:
+
+                    return id;
 
                 ///
 
                 default:
-                    continue;
+
+                    break;
             }   
         }
 

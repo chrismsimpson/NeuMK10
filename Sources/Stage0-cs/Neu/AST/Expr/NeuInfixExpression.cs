@@ -38,8 +38,8 @@ public static partial class NeuInfixExpressionFunctions {
                 ///
 
                 case NeuExpression _:
-                case NeuIdentifier _:
-                case NeuLiteral _:
+                case NeuIdentifier _: // maybe can remove this?
+                case NeuLiteral _:  // maybe can remove this?
                 
                     return child;
 

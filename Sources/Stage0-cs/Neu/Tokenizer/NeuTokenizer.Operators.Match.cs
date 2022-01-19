@@ -15,9 +15,15 @@ public static partial class NeuTokenizerFunctions {
         return tokenizer.PeekInfixOperator() is NeuInfixOperator;
     }
 
-    public static bool MatchInfixOrPostfixOperator(
+    public static bool MatchPostfixOperator(
         this Tokenizer<NeuToken> tokenizer) {
 
-        return tokenizer.PeekInfixOrPostfixOperator() is NeuOperator;
+        return tokenizer.PeekPostfixOperator() is NeuPostfixOperator;
     }
+
+    // public static bool MatchInfixOrPostfixOperator(
+    //     this Tokenizer<NeuToken> tokenizer) {
+
+    //     return tokenizer.PeekInfixOrPostfixOperator() is NeuOperator;
+    // }
 }

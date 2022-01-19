@@ -75,11 +75,26 @@ public static partial class NeuParserFunctions {
 
         ///
 
+        NeuTypeIdentifier? typeHint = null;
+
+        ///
+
         if (parser.Tokenizer.MatchColon()) {
 
             var annotation = parser.ParseTypeAnnotation();
 
             children.Add(annotation);
+
+            ///
+
+            typeHint = annotation.GetTypeIdentifier();
+
+            ///
+
+            if (typeHint is NeuTypeIdentifier pushHint) {
+
+                parser.Tokenizer.AddTypeHint(pushHint);
+            }
         }
 
         ///
@@ -89,6 +104,13 @@ public static partial class NeuParserFunctions {
             var initClause = parser.ParseInitClause();
 
             children.Add(initClause);
+        }
+
+        ///
+
+        if (typeHint is NeuTypeIdentifier popHint) {
+
+            parser.Tokenizer.RemoveTypeHint(popHint);
         }
 
         ///

@@ -10,7 +10,33 @@ public static partial class NeuParserFunctions {
 
         ///
 
-        var operation = parser.ParseOperation();
+        Node? expr;
+
+        ///
+
+        switch (true) {
+
+            case var _ when parser.Tokenizer.MatchPrefixOperator():
+                
+                expr = parser.ParsePrefixOperation();
+
+                break;
+
+            ///
+
+            default:
+
+                expr = parser.ParseTrailingExpression();
+
+                break;
+        }
+
+        ///
+
+        if (expr == null) {
+
+            throw new Exception();
+        }
 
         ///
 
@@ -23,6 +49,33 @@ public static partial class NeuParserFunctions {
 
         ///
 
-        return operation;
+        return expr;
+    }
+
+    ///
+
+    public static Node ParseTrailingExpression(
+        this NeuParser parser) {
+
+        var start = parser.Tokenizer.GetLocation();
+
+        ///
+
+        var operand = parser.ParseOperand(start);
+
+        ///
+
+        switch (parser.Tokenizer.MatchPostfixOperator()) {
+
+            case true:
+
+                return parser.ParsePostfixExpression(start, operand);
+
+            ///
+
+            default:
+
+                return operand;
+        }
     }
 }

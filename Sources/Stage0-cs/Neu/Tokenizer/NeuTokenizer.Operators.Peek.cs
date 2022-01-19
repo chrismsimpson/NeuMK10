@@ -93,16 +93,16 @@ public static partial class NeuTokenizerFunctions {
         }
     }
 
-    ///
+    // ///
 
-    public static NeuPostfixOperator? PeekPostfixOperator(
-        this Tokenizer<NeuToken> tokenizer) {
+    // public static NeuPostfixOperator? PeekPostfixOperator(
+    //     this Tokenizer<NeuToken> tokenizer) {
 
-        switch (true) {
+    //     switch (true) {
 
-            default:
+    //         default:
 
-                return null;
-        }
-    }
+    //             return null;
+    //     }
+    // }
 }

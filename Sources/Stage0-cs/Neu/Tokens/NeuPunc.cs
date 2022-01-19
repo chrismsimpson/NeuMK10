@@ -23,9 +23,10 @@ public enum NeuPuncType {
     Asterisk,
     Slash,
     Plus,
-    Hyphen
+    Hyphen,
 
-
+    PlusPlus,
+    HyphenHyphen
 }
 
 ///

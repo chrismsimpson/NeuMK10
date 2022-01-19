@@ -92,5 +92,11 @@ public class NeuTestsCommand: ICommand {
 
         await new NeuVariableTestCommand()
             .Run(filename: "./Tests/Neu/test04.neu", args);
+
+        await new NeuPostfixIncrementTestCommand()
+            .Run(filename: "./Tests/Neu/test05.neu", args);
+
+        await new NeuPostfixDecrementTestCommand()
+            .Run(filename: "./Tests/Neu/test06.neu", args);
     }
 }

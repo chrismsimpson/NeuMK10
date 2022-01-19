@@ -53,9 +53,15 @@ public static partial class NeuTokenizerFunctions {
                 case '-' when tokenizer.Scanner.Match(equals: '>', distance: 1):
                     return tokenizer.NextArrow();
 
+                /// Punc (Double)
 
+                case '+' when tokenizer.Scanner.Match(equals: '+', distance: 1):
+                    return tokenizer.NextPlusPlus();
 
-                /// Punc
+                case '-' when tokenizer.Scanner.Match(equals: '-', distance: 1):
+                    return tokenizer.NextHyphenHyphen();
+
+                /// Punc (Single)
 
                 case '(':
                     return tokenizer.NextLeftParen();

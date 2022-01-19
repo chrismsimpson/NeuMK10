@@ -6,6 +6,10 @@ public static partial class NeuParserFunctions {
     public static Node ParsePrimary(
         this NeuParser parser) {
 
+        var start = parser.Tokenizer.GetLocation();
+
+        ///
+
         switch (parser.Tokenizer.Peek()) {
 
             case NeuIdentifier _:
@@ -19,7 +23,8 @@ public static partial class NeuParserFunctions {
                     throw new Exception();
                 }
 
-                return id;
+                // return id;
+                return parser.ParseIdentifierExpression(start, id);
 
             ///
 
@@ -34,7 +39,8 @@ public static partial class NeuParserFunctions {
                     throw new Exception();
                 }
 
-                return number;
+                // return number;
+                return parser.ParseNumberLiteralExpression(start, number);
 
             ///
 
@@ -42,5 +48,27 @@ public static partial class NeuParserFunctions {
 
                 throw new Exception($"Unexpected: {t}");
         }
+    }
+
+    public static NeuIdentifierExpression ParseIdentifierExpression(
+        this NeuParser parser,
+        SourceLocation start,
+        NeuIdentifier id) {
+
+        return new NeuIdentifierExpression(
+            children: new Node[] { id },
+            start: start,
+            end: parser.Tokenizer.GetLocation());
+    }
+
+    public static NeuNumberLiteralExpression ParseNumberLiteralExpression(
+        this NeuParser parser,
+        SourceLocation start,
+        NeuNumberLiteral lit) {
+
+        return new NeuNumberLiteralExpression(
+            children: new Node[] { lit },
+            start: start,
+            end: parser.Tokenizer.GetLocation());
     }
 }
