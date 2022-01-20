@@ -4,29 +4,7 @@ The escape hatch
 
 # What is this?
 
-From `Tests/`:
-
-### test01.neu
-
-```
-func main() -> Int {
-
-    return 0
-}
-```
-
-A basic function
-
-### test02.neu
-
-```
-func main() -> Float {
-
-    return 0.0
-}
-```
-
-Returns a Float type instead of an Int, both are type checked.
+An experimental programming language. Currently, I am merely building an interpreter, but I am organising the layout of the interpreter/virtual machine much like you would a compiled C program, so that I can later add that level of interoperability. To see what you can already do with this language, have a look at the [tests](./TESTS.md).
 
 ## Intermediate representation
 
