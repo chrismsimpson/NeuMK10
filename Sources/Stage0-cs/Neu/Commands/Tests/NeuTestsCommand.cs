@@ -98,37 +98,40 @@ public class NeuTestsCommand: ICommand {
 
         var args = arguments.DropArguments(number: 1);
 
-        await new NeuTestsVoidCommand()
-            .Run(filename: "./Tests/Neu/test00.neu", args);
+        // await new NeuTestsVoidCommand()
+        //     .Run(filename: "./Tests/Neu/test00.neu", args);
 
-        await new NeuTestsBasicIntFuncCommand()
-            .Run(filename: "./Tests/Neu/test01.neu", args);
+        // await new NeuTestsBasicIntFuncCommand()
+        //     .Run(filename: "./Tests/Neu/test01.neu", args);
 
-        await new NeuTestsBasicFloatFuncCommand()
-            .Run(filename: "./Tests/Neu/test02.neu", args);
+        // await new NeuTestsBasicFloatFuncCommand()
+        //     .Run(filename: "./Tests/Neu/test02.neu", args);
 
-        await new NeuArithmeticTestCommand()
-            .Run(filename: "./Tests/Neu/test03.neu", args);
+        // await new NeuArithmeticTestCommand()
+        //     .Run(filename: "./Tests/Neu/test03.neu", args);
 
-        await new NeuVariableTestCommand()
-            .Run(filename: "./Tests/Neu/test04.neu", args);
+        // await new NeuVariableTestCommand()
+        //     .Run(filename: "./Tests/Neu/test04.neu", args);
 
-        await new NeuPostfixIncrementTestCommand()
-            .Run(filename: "./Tests/Neu/test05.neu", args);
+        // await new NeuPostfixIncrementTestCommand()
+        //     .Run(filename: "./Tests/Neu/test05.neu", args);
 
-        await new NeuPostfixDecrementTestCommand()
-            .Run(filename: "./Tests/Neu/test06.neu", args);
+        // await new NeuPostfixDecrementTestCommand()
+        //     .Run(filename: "./Tests/Neu/test06.neu", args);
 
-        await new NeuPrefixIncrementTestCommand()
-            .Run(filename: "./Tests/Neu/test07.neu", args);
+        // await new NeuPrefixIncrementTestCommand()
+        //     .Run(filename: "./Tests/Neu/test07.neu", args);
 
-        await new NeuPrefixDecrementTestCommand()
-            .Run(filename: "./Tests/Neu/test08.neu", args);
+        // await new NeuPrefixDecrementTestCommand()
+        //     .Run(filename: "./Tests/Neu/test08.neu", args);
 
-        await new NeuBoolTrueTestCommand()
-            .Run(filename: "./Tests/Neu/test09.neu", args);
+        // await new NeuBoolTrueTestCommand()
+        //     .Run(filename: "./Tests/Neu/test09.neu", args);
 
-        await new NeuBoolFalseTestCommand()
-            .Run(filename: "./Tests/Neu/test10.neu", args);
+        // await new NeuBoolFalseTestCommand()
+        //     .Run(filename: "./Tests/Neu/test10.neu", args);
+
+        await new NeuBasicArrayTestCommand()
+            .Run(filename: "./Tests/Neu/test11.neu", args);
     }
 }

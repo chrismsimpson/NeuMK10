@@ -10,6 +10,10 @@ public static partial class NeuParserFunctions {
 
         ///
 
+        var children = new List<Node>();
+
+        ///
+
         var id = parser.Tokenizer.MaybeNextIdentifier();
 
         if (id == null) {
@@ -17,10 +21,21 @@ public static partial class NeuParserFunctions {
             throw new Exception();
         }
 
+        children.Add(id);
+
+        ///
+
+        if (parser.Tokenizer.MatchLess()) {
+
+            var genericArgClause = parser.ParseGenericArgumentClause();
+
+            children.Add(genericArgClause);
+        }
+
         ///
 
         return new NeuSimpleTypeId(
-            children: new Node[] { id },
+            children: children,
             start: start,
             end: parser.Tokenizer.GetLocation());
     }

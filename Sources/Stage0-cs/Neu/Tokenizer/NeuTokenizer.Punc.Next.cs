@@ -236,4 +236,16 @@ public static partial class NeuTokenizerFunctions {
 
         return tokenizer.NextPunc("--", NeuPuncType.HyphenHyphen);
     }
+
+    private static NeuPunc NextLess(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextPunc('<', NeuPuncType.Less);
+    }
+
+    private static NeuPunc NextGreater(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextPunc('>', NeuPuncType.Greater);
+    }
 }

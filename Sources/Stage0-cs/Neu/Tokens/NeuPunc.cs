@@ -26,7 +26,10 @@ public enum NeuPuncType {
     Hyphen,
 
     PlusPlus,
-    HyphenHyphen
+    HyphenHyphen,
+
+    Less,
+    Greater
 }
 
 ///

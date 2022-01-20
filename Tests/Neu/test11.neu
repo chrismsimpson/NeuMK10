@@ -1,0 +1,7 @@
+
+func main() -> Array<Int> {
+  
+  var n = [1, 2, 3]
+  
+  return n
+}
