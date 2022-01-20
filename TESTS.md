@@ -50,7 +50,7 @@ func foo() -> Float {
 foo()
 ```
 
-Adds infix operators with precedence.
+Adds comments and infix operators with precedence.
 
 
 ## 04 - Variables
