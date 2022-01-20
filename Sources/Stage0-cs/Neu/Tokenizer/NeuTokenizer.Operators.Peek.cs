@@ -14,7 +14,7 @@ public static partial class NeuTokenizerFunctions {
 
                 return prefixOp;
 
-            /// Infix
+            /// Infix or Postfix
 
             case var _ when tokenizer.PeekInfixOrPostfixOperator() is NeuOperator op:
 
@@ -57,19 +57,6 @@ public static partial class NeuTokenizerFunctions {
 
     ///
 
-    public static NeuPrefixOperator? PeekPrefixOperator(
-        this Tokenizer<NeuToken> tokenizer) {
-
-        switch (true) {
-
-            default:
-
-                return null;
-        }
-    }
-
-    ///
-
     public static NeuInfixOperator? PeekInfixOperator(
         this Tokenizer<NeuToken> tokenizer) {
 
@@ -92,17 +79,4 @@ public static partial class NeuTokenizerFunctions {
                 return null;
         }
     }
-
-    // ///
-
-    // public static NeuPostfixOperator? PeekPostfixOperator(
-    //     this Tokenizer<NeuToken> tokenizer) {
-
-    //     switch (true) {
-
-    //         default:
-
-    //             return null;
-    //     }
-    // }
 }

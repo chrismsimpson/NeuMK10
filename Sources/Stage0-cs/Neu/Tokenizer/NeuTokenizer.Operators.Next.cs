@@ -34,36 +34,4 @@ public static partial class NeuTokenizerFunctions {
 
         return null;
     }
-
-    ///
-
-    public static NeuPostfixOperator? MaybeNextPostfixOperator(
-        this Tokenizer<NeuToken> tokenizer) {
-
-        if (tokenizer.PeekPostfixOperator() is NeuPostfixOperator op) {
-
-            tokenizer.Position++;
-
-            return op;
-        }
-
-        ///
-
-        return null;
-    }
-
-    // public static NeuOperator? MaybeNextInfixOrPostfixOperator(
-    //     this Tokenizer<NeuToken> tokenizer) {
-
-    //     if (tokenizer.PeekInfixOrPostfixOperator() is NeuOperator op) {
-
-    //         tokenizer.Position++;
-
-    //         return op;
-    //     }
-
-    //     ///
-
-    //     return null;
-    // }
 }

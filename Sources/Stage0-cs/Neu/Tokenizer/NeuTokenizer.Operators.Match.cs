@@ -6,7 +6,7 @@ public static partial class NeuTokenizerFunctions {
     public static bool MatchPrefixOperator(
         this Tokenizer<NeuToken> tokenizer) {
         
-        return tokenizer.PeekOperator() is NeuOperator;
+        return tokenizer.PeekPrefixOperator() is NeuPrefixOperator;
     }
 
     public static bool MatchInfixOperator(
@@ -20,10 +20,4 @@ public static partial class NeuTokenizerFunctions {
 
         return tokenizer.PeekPostfixOperator() is NeuPostfixOperator;
     }
-
-    // public static bool MatchInfixOrPostfixOperator(
-    //     this Tokenizer<NeuToken> tokenizer) {
-
-    //     return tokenizer.PeekInfixOrPostfixOperator() is NeuOperator;
-    // }
 }

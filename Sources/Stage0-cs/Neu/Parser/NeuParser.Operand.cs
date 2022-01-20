@@ -4,6 +4,16 @@ namespace Neu;
 public static partial class NeuParserFunctions {
 
     public static Node ParseOperand(
+        this NeuParser parser) {
+
+        var start = parser.Tokenizer.GetLocation();
+
+        ///
+
+        return parser.ParseOperand(start);
+    }
+
+    public static Node ParseOperand(
         this NeuParser parser,
         SourceLocation start) {
 

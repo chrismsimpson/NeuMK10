@@ -49,6 +49,14 @@ public static partial class NeuParserFunctions {
                 return parser.ParseLabeledStatement();
 
 
+            
+            ///
+
+            case var _ when parser.Tokenizer.MatchPrefixOperator():
+
+                return parser.ParsePrefixExpression();
+
+
 
             ///
 

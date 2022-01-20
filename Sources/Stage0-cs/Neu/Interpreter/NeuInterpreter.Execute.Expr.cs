@@ -9,6 +9,12 @@ public static partial class NeuInterpreterFunctions {
 
         switch (expr) {
 
+            case NeuPrefixExpression prefixExpr:
+
+                return interpreter.Execute(prefixExpr);
+
+            ///
+
             case NeuInfixExpression infixExpr:
 
                 return interpreter.Execute(infixExpr);

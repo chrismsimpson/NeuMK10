@@ -121,14 +121,14 @@ public static partial class NeuInterpreterFunctions {
                 return interpreter.Execute(decl);
 
             ///
-
-            case NeuStatement stmt:
-                return interpreter.Execute(stmt);
-
-            ///
         
             case NeuExpression expr:
                 return interpreter.Execute(expr);
+
+            ///
+
+            case NeuStatement stmt:
+                return interpreter.Execute(stmt);
 
             ///
 

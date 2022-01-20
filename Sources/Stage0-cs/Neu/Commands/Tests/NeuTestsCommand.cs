@@ -98,5 +98,11 @@ public class NeuTestsCommand: ICommand {
 
         await new NeuPostfixDecrementTestCommand()
             .Run(filename: "./Tests/Neu/test06.neu", args);
+
+        await new NeuPrefixIncrementTestCommand()
+            .Run(filename: "./Tests/Neu/test07.neu", args);
+
+        await new NeuPrefixDecrementTestCommand()
+            .Run(filename: "./Tests/Neu/test08.neu", args);
     }
 }

@@ -18,7 +18,7 @@ public static partial class NeuParserFunctions {
 
             case var _ when parser.Tokenizer.MatchPrefixOperator():
                 
-                expr = parser.ParsePrefixOperation();
+                expr = parser.ParsePrefixExpression();
 
                 break;
 
@@ -62,6 +62,13 @@ public static partial class NeuParserFunctions {
         ///
 
         var operand = parser.ParseOperand(start);
+
+        ///
+
+        if (operand.IsNewlineDelimited(threshold: 2)) {
+
+            return operand;
+        }
 
         ///
 

@@ -1,7 +1,7 @@
 
 namespace Neu;
 
-public partial class NeuExpression : NeuCodeBlockItem {
+public partial class NeuExpression: NeuStatement { // NeuCodeBlockItem {
 
     public NeuExpression(
         IEnumerable<Node> children,

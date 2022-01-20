@@ -26,6 +26,15 @@ public partial class Node {
 
 public static partial class NodeFunctions {
 
+    public static bool IsNewlineDelimited(
+        this Node node,
+        int threshold) {
+
+        var newlines = node.End.LineNumber - node.Start.LineNumber;
+
+        return newlines >= threshold;
+    }
+
     public static T? GetFirstOrDefault<T>(
         this Node node) {
 
