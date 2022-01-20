@@ -1,9 +1,9 @@
 
 namespace Neu;
 
-public partial class NeuPrefixIncrementTestCommand: NeuTestsCommand {
+public partial class NeuBoolFalseTestCommand: NeuTestsCommand {
 
-    public NeuPrefixIncrementTestCommand() { }
+    public NeuBoolFalseTestCommand() { }
 
     ///
 
@@ -16,16 +16,16 @@ public partial class NeuPrefixIncrementTestCommand: NeuTestsCommand {
 
             ///
 
-            var intResult = result as NeuInteger;
+            var boolResult = result as NeuBool;
 
-            if (intResult == null) {
+            if (boolResult == null) {
 
                 throw new Exception();
             }
 
             ///
 
-            if (intResult.Value != 1) {
+            if (boolResult.Value != false) {
                 
                 throw new Exception();
             }

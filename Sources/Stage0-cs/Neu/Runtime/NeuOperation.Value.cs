@@ -26,6 +26,11 @@ public static partial class NeuValueFunctions {
 
             ///
 
+            case NeuBool b:
+                return $"{b.Value} (Bool)";
+
+            ///
+
             default:
                 return $"{value} (unknown)";
         }   

@@ -25,7 +25,14 @@ public class NeuTestsVoidCommand: NeuTestsCommand {
 
             ///
 
-            WriteLine($"  Test {arguments.GetArgumentSource(distance: 1)} successful\n");
+            var silent = arguments.Get("--silent") == null
+                ? false
+                : true;
+
+            if (!silent) {
+            
+                WriteLine($"  Test {filename} successful\n");
+            }
         });
     }
 }

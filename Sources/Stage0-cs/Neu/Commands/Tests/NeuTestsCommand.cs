@@ -52,7 +52,14 @@ public class NeuTestsCommand: ICommand {
 
         ///
 
-        WriteLine($"///////////////////////////////////////////////\n");
+        var silent = arguments.Get("--silent") == null
+            ? false
+            : true;
+
+        if (!silent) {
+        
+            WriteLine($"///////////////////////////////////////////////\n");
+        }
 
         ///
 
@@ -60,13 +67,26 @@ public class NeuTestsCommand: ICommand {
 
         ///
 
-        WriteLine($"  Running test {filename}{(dumpAST ? "\n" : "")}");
+        if (silent) {
+
+            dumpAST = false;
+        }
+
+        ///
+
+        if (!silent) {
+
+            WriteLine($"  Running test {filename}{(dumpAST ? "\n" : "")}");
+        }
 
         var result = interpreter.Evaluate(filename, droppedArgs, dumpAST: dumpAST, indent: 2);
 
         ///
 
-        WriteLine($"  Result: {result.Dump()}");
+        if (!silent) {
+        
+            WriteLine($"  Result: {result.Dump()}");
+        }
 
         ///
 
@@ -104,5 +124,11 @@ public class NeuTestsCommand: ICommand {
 
         await new NeuPrefixDecrementTestCommand()
             .Run(filename: "./Tests/Neu/test08.neu", args);
+
+        await new NeuBoolTrueTestCommand()
+            .Run(filename: "./Tests/Neu/test09.neu", args);
+
+        await new NeuBoolFalseTestCommand()
+            .Run(filename: "./Tests/Neu/test10.neu", args);
     }
 }

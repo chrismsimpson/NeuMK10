@@ -44,6 +44,21 @@ public static partial class NeuParserFunctions {
 
             ///
 
+            case NeuKeyword k when k.KeywordType == NeuKeywordType.True || k.KeywordType == NeuKeywordType.False:
+
+                var boolKeyword = parser.Tokenizer.MaybeNextTrueOrFalse();
+
+                if (boolKeyword == null) {
+
+                    throw new Exception();
+                }
+
+                ///
+
+                return parser.ParseBoolLiteralExpression(start, boolKeyword);
+
+            ///
+
             case var t:
 
                 throw new Exception($"Unexpected: {t}");
@@ -68,6 +83,17 @@ public static partial class NeuParserFunctions {
 
         return new NeuNumberLiteralExpression(
             children: new Node[] { lit },
+            start: start,
+            end: parser.Tokenizer.GetLocation());
+    }
+
+    public static NeuBoolLiteralExpression ParseBoolLiteralExpression(
+        this NeuParser parser,
+        SourceLocation start,
+        NeuKeyword boolKeyword) {
+
+        return new NeuBoolLiteralExpression(
+            children: new Node[] { boolKeyword },
             start: start,
             end: parser.Tokenizer.GetLocation());
     }

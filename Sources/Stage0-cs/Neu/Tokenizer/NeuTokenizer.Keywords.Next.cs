@@ -37,6 +37,12 @@ public static partial class NeuTokenizerFunctions {
         return tokenizer.MaybeNextKeyword(NeuKeywordType.Let, NeuKeywordType.Var);
     }
 
+    public static NeuKeyword? MaybeNextTrueOrFalse(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.MaybeNextKeyword(NeuKeywordType.True, NeuKeywordType.False);
+    }
+
     ///
 
     private static NeuKeyword NextKeyword(
@@ -92,5 +98,17 @@ public static partial class NeuTokenizerFunctions {
         this Tokenizer<NeuToken> tokenizer) {
 
         return tokenizer.NextKeyword("let", NeuKeywordType.Let);
+    }
+
+    private static NeuKeyword NextTrue(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextKeyword("true", NeuKeywordType.True);
+    }
+
+    private static NeuKeyword NextFalse(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextKeyword("false", NeuKeywordType.False);
     }
 }

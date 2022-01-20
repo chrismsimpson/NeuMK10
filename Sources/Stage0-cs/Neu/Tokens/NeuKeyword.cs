@@ -6,7 +6,10 @@ public enum NeuKeywordType {
     Func,
     Return,
     Var,
-    Let
+    Let,
+
+    True,
+    False
 }
 
 public partial class NeuKeyword: NeuToken {

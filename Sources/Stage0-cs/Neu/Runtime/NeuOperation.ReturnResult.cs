@@ -57,6 +57,14 @@ public static partial class NeuReturnResultFunctions {
                 return true;
 
             ///
+
+            case NeuBool b when 
+                returnType is NeuSimpleTypeId simpleTypeId &&
+                simpleTypeId.GetFirstOrDefault<NeuIdentifier>() is NeuIdentifier id &&
+                id.Source == "Bool":
+                return true;
+
+            ///
                 
             default:
                 return false;

@@ -124,6 +124,12 @@ public static partial class NeuTokenizerFunctions {
                 case 'l' when tokenizer.Scanner.MatchWithTrailingWhitespace(equals: "et", distance: 1):
                     return tokenizer.NextLet();
 
+                case 't' when tokenizer.Scanner.MatchWithTrailingWhitespace(equals: "rue", distance: 1):
+                    return tokenizer.NextTrue();
+
+                case 'f' when tokenizer.Scanner.MatchWithTrailingWhitespace(equals: "alse", distance: 1):
+                    return tokenizer.NextFalse();
+
 
                 
                 /// Literals - Numbers

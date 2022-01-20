@@ -33,6 +33,12 @@ public static partial class NeuInterpreterFunctions {
 
             ///
 
+            case NeuBoolLiteralExpression boolLitExpr:
+
+                return interpreter.Execute(boolLitExpr);
+
+            ///
+
             case NeuIdentifierExpression idExpr:
 
                 return interpreter.Execute(idExpr);

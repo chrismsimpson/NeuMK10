@@ -118,16 +118,19 @@ public static partial class NeuInterpreterFunctions {
             /// AST Nodes
 
             case NeuDeclaration decl:
+            
                 return interpreter.Execute(decl);
 
             ///
         
             case NeuExpression expr:
+
                 return interpreter.Execute(expr);
 
             ///
 
             case NeuStatement stmt:
+
                 return interpreter.Execute(stmt);
 
             ///
@@ -139,12 +142,26 @@ public static partial class NeuInterpreterFunctions {
             /// Tokens
 
             case NeuLiteral literal:
+
                 return interpreter.Execute(literal);
 
             ///
 
             case NeuIdentifier id:
+
                 return interpreter.Execute(id);
+
+            ///
+
+            case NeuKeyword k when k.KeywordType == NeuKeywordType.True:
+
+                return new NeuBool(true);
+
+            ///
+
+            case NeuKeyword k when k.KeywordType == NeuKeywordType.False:
+
+                return new NeuBool(false);
 
             ///
 
