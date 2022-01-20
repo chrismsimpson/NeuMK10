@@ -1,0 +1,9 @@
+
+func main() -> Int {
+
+    var i: Int = 0
+
+    i++
+
+    return i
+}
