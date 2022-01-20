@@ -1,7 +1,7 @@
 
 namespace Neu;
 
-public partial class NeuParamClause: Node {
+public partial class NeuParamClause: NeuNode {
 
     public NeuParamClause(
         IEnumerable<Node> children,
