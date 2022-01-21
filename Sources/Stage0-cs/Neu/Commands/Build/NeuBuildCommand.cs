@@ -10,6 +10,18 @@ public class NeuBuildCommand: ICommand {
     public async Task Run(
         IEnumerable<IArgument> arguments) {
 
-        await Task.Run(() => { });
+        await Task.Run(() => {
+
+            var path = "./Sources/Stage1";
+
+            foreach (var n in GetFiles(path)) {
+
+                WriteLine(n);
+            }
+
+            
+
+            WriteLine("Hello build!");
+        });
     }
 }

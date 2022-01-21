@@ -10,8 +10,8 @@ public static partial class IArgumentFunctions {
 
             // /// Build
 
-            // case "build":
-            //     return arguments.ToBuildCommand();
+            case "build":
+                return arguments.ToBuildCommand();
 
 
 

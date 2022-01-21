@@ -8,8 +8,8 @@ public static partial class ICommandFunctions {
 
         switch (command)  {
 
-            // case NeuBuildCommand _:
-            //     return "build";
+            case NeuBuildCommand _:
+                return "build";
 
             // case NeuEvalCommand _:
             //     return "eval";

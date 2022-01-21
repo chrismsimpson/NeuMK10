@@ -2,6 +2,31 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "neu build",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Sources/Stage0-cs/Neu/bin/Debug/net6.0/Neu.dll",
+            "args": [
+                "build",
+                // "--dump-ast",
+                // "--silent",
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false,
+            "logging": {
+                "moduleLoad": false,
+                "engineLogging": false,
+                "elapsedTiming": false,
+                "exceptions": true,
+                "processExit": true,
+                "programOutput": true,
+                "threadExit": false
+            },
+            "requireExactSource": true
+        },
+        {
             "name": "neu tests",
             "type": "coreclr",
             "request": "launch",
