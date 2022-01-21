@@ -1,7 +1,7 @@
 
 namespace Neu;
 
-public partial class NeuBoolLiteralExpression: NeuExpression {
+public partial class NeuBoolLiteralExpression: NeuLiteralExpression {
 
     public NeuBoolLiteralExpression(
         IEnumerable<Node> children,

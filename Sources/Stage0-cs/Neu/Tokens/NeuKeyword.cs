@@ -9,7 +9,9 @@ public enum NeuKeywordType {
     Let,
 
     True,
-    False
+    False,
+
+    SizeOf
 }
 
 public partial class NeuKeyword: NeuToken {

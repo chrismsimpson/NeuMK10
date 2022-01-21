@@ -1,0 +1,7 @@
+
+func main() {
+
+    var n = sizeof(Float)
+
+    return
+}

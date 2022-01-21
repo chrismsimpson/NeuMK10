@@ -10,8 +10,8 @@ public static partial class NeuInterpreterFunctions {
         var argument = retStmt.GetArgument();
 
         if (argument == null) {
-            
-            throw new Exception();
+
+            return new NeuReturnResult(NeuOperation.Void);
         }
 
         ///

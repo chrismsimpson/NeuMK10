@@ -9,6 +9,43 @@ public static partial class NeuInterpreterFunctions {
 
         switch (expr) {
 
+
+
+            
+            case NeuLiteralExpression litExpr:
+
+                return interpreter.Execute(litExpr);
+
+            ///
+
+            case NeuIdentifierExpression idExpr:
+
+                return interpreter.Execute(idExpr);
+
+            ///
+
+            case NeuCallExpression callExpr:
+
+                return interpreter.Execute(callExpr);
+
+
+
+
+
+
+
+
+
+
+
+            ///
+
+            case NeuUnaryExpression unaryExpr when !unaryExpr.IsFixExpression():
+
+                return interpreter.Execute(unaryExpr);
+
+            ///
+
             case NeuPrefixExpression prefixExpr:
 
                 return interpreter.Execute(prefixExpr);
@@ -21,87 +58,15 @@ public static partial class NeuInterpreterFunctions {
 
             ///
 
-            case NeuCallExpression callExpr:
-
-                return interpreter.Execute(callExpr);
-
-            ///
-
-            case NeuNumberLiteralExpression numberLitExpr:
-
-                return interpreter.Execute(numberLitExpr);
-
-            ///
-
-            case NeuBoolLiteralExpression boolLitExpr:
-
-                return interpreter.Execute(boolLitExpr);
-
-            ///
-
-            case NeuIdentifierExpression idExpr:
-
-                return interpreter.Execute(idExpr);
-
-            ///
-
             case NeuPostfixExpression postfixExpr:
 
                 return interpreter.Execute(postfixExpr);
+
 
             ///
 
             default:
                 
-                throw new Exception();
-        }
-    }
-
-    public static NeuOperation Execute(
-        this NeuInterpreter interpreter,
-        NeuInfixExpression infixExpr) {
-
-        var lhsNode = infixExpr.GetLHSNode();
-
-        var lhsResult = interpreter.Execute(lhsNode);
-
-        ///
-
-        var rhsNode = infixExpr.GetRHSNode();
-
-        var rhsResult = interpreter.Execute(rhsNode);
-
-        ///
-
-        var op = infixExpr.GetOperator();
-
-        ///
-
-        return interpreter.Execute(op, lhsResult, rhsResult);
-    }
-
-    public static NeuOperation Execute(
-        this NeuInterpreter interpreter,
-        NeuInfixOperator op,
-        NeuOperation lhsResult,
-        NeuOperation rhsResult) {
-
-        switch (op) {
-
-            case NeuAssignOperator assignOp:
-
-                throw new Exception();
-
-            ///
-
-            case NeuBinaryOperator binaryOp:
-
-                return interpreter.Execute(binaryOp, lhsResult, rhsResult);
-
-            ///
-
-            default:
-
                 throw new Exception();
         }
     }

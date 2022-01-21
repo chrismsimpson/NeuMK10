@@ -8,7 +8,7 @@ An experimental programming language. Currently, I am merely building an interpr
 
 ## Intermediate representation
 
-Comming
+Coming
 
 ## Stage 0
 

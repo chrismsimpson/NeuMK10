@@ -111,4 +111,10 @@ public static partial class NeuTokenizerFunctions {
 
         return tokenizer.NextKeyword("false", NeuKeywordType.False);
     }
+
+    private static NeuKeyword NextSizeOf(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextKeyword("sizeof", NeuKeywordType.SizeOf);
+    }
 }

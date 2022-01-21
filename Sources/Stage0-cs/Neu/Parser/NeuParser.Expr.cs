@@ -16,6 +16,14 @@ public static partial class NeuParserFunctions {
 
         switch (true) {
 
+            case var _ when parser.Tokenizer.MatchUnaryOperator():
+
+                expr = parser.ParseUnaryExpression();
+
+                break;
+
+            ///
+
             case var _ when parser.Tokenizer.MatchPrefixOperator():
                 
                 expr = parser.ParsePrefixExpression();

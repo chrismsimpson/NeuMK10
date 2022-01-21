@@ -46,6 +46,7 @@ public static partial class NeuReturnResultFunctions {
                 returnType is NeuSimpleTypeId simpleTypeId && 
                 simpleTypeId.GetFirstOrDefault<NeuIdentifier>() is NeuIdentifier id && 
                 id.Source == "Int":
+                
                 return true;
 
             ///
@@ -54,6 +55,7 @@ public static partial class NeuReturnResultFunctions {
                 returnType is NeuSimpleTypeId simpleTypeId && 
                 simpleTypeId.GetFirstOrDefault<NeuIdentifier>() is NeuIdentifier id &&
                 id.Source == "Float":
+
                 return true;
 
             ///
@@ -62,6 +64,13 @@ public static partial class NeuReturnResultFunctions {
                 returnType is NeuSimpleTypeId simpleTypeId &&
                 simpleTypeId.GetFirstOrDefault<NeuIdentifier>() is NeuIdentifier id &&
                 id.Source == "Bool":
+
+                return true;
+
+            ///
+
+            case NeuVoid when returnType == null:
+
                 return true;
 
             ///

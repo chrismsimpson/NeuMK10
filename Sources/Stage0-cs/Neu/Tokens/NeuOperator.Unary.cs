@@ -4,7 +4,8 @@ namespace Neu;
 public enum NeuUnaryOperatorType {
 
     Increment,
-    Decrement
+    Decrement,
+    SizeOf
 }
 
 public partial class NeuUnaryOperator: NeuOperator {

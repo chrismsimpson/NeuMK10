@@ -3,20 +3,14 @@ namespace Neu;
 
 public static partial class NeuTokenizerFunctions {
 
-    public static NeuUnaryOperatorType? ToNeuPrefixOperatorType(
+    public static NeuUnaryOperatorType? ToNeuUnaryOperatorType(
         NeuToken token) {
 
         switch (token) {
 
-            case NeuPunc p when p.PuncType == NeuPuncType.PlusPlus:
+            case NeuKeyword k when k.KeywordType == NeuKeywordType.SizeOf:
 
-                return NeuUnaryOperatorType.Increment;
-
-            ///
-
-            case NeuPunc p when p.PuncType == NeuPuncType.HyphenHyphen:
-
-                return NeuUnaryOperatorType.Decrement;
+                return NeuUnaryOperatorType.SizeOf;
 
             ///
 
@@ -26,14 +20,14 @@ public static partial class NeuTokenizerFunctions {
         }
     }
 
-    public static NeuPrefixOperator? ToNeuPrefixOperator(
+    public static NeuUnaryOperator? ToNeuUnaryOperator(
         NeuToken token) {
 
-        switch (ToNeuPostfixOperatorType(token)) {
+        switch (ToNeuUnaryOperatorType(token)) {
 
             case NeuUnaryOperatorType t:
 
-                return new NeuPrefixOperator(
+                return new NeuUnaryOperator(
                     source: token.Source,
                     start: token.Start,
                     end: token.End,

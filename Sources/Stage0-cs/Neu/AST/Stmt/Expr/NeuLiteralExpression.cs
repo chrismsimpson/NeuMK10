@@ -1,9 +1,9 @@
 
 namespace Neu;
 
-public partial class NeuUnaryExpression: NeuExpression {
+public partial class NeuLiteralExpression: NeuExpression {
 
-    public NeuUnaryExpression(
+    public NeuLiteralExpression(
         IEnumerable<Node> children,
         SourceLocation start,
         SourceLocation end)

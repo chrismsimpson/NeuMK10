@@ -3,6 +3,12 @@ namespace Neu;
 
 public static partial class NeuTokenizerFunctions {
 
+    public static bool MatchUnaryOperator(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.PeekUnaryOperator() is NeuUnaryOperator;
+    }
+
     public static bool MatchPrefixOperator(
         this Tokenizer<NeuToken> tokenizer) {
         

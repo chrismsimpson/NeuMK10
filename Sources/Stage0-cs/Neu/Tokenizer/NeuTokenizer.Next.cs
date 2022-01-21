@@ -139,6 +139,9 @@ public static partial class NeuTokenizerFunctions {
                 case 'f' when tokenizer.Scanner.MatchWithTrailingWhitespace(equals: "alse", distance: 1):
                     return tokenizer.NextFalse();
 
+                case 's' when tokenizer.Scanner.MatchWithTrailingDelimiter(equals: "izeof", delimitedBy: c => c == '(' || c == ' ', distance: 1):
+                    return tokenizer.NextSizeOf();
+
 
                 
                 /// Literals - Numbers
