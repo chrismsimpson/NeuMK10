@@ -20,7 +20,7 @@ public static partial class NeuInterpreterFunctions {
 
         ///
 
-        var enterStackPos = interpreter.Stack.Count();
+        var enterPos = interpreter.Stack.Count();
 
         ///
 
@@ -77,27 +77,7 @@ public static partial class NeuInterpreterFunctions {
 
         ///
 
-        var exitStackPos = interpreter.Stack.Count();
-
-        ///
-
-        var additionalStackFrames = exitStackPos - enterStackPos;
-
-        if (additionalStackFrames > 0) {
-
-            for (var i = additionalStackFrames; i > 0; --i) {
-
-                interpreter.Stack.Pop();
-            }
-        }
-        else if (additionalStackFrames < 0) {
-
-            throw new Exception();
-        }
-
-        ///
-
-            // TODO: Unhoist
+        interpreter.Unwind(enterPos, node);
 
         ///
 
