@@ -72,5 +72,22 @@ public static partial class NeuTokenizerFunctions {
             
         return tokenizer.MatchPunc(NeuPuncType.Equal);
     }
+    
+    public static bool MatchLess(
+        this Tokenizer<NeuToken> tokenizer) {
 
+        return tokenizer.MatchPunc(NeuPuncType.Less);
+    }
+
+    public static bool MatchGreater(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.MatchPunc(NeuPuncType.Greater);
+    }
+
+    public static bool MatchRightBracket(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.MatchPunc(NeuPuncType.RightBracket);
+    }
 }

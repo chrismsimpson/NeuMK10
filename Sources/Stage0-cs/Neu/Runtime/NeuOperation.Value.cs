@@ -17,21 +17,25 @@ public static partial class NeuValueFunctions {
         switch (value) {
 
             case NeuFloat f:
+
                 return $"{f.Value} (Float)";
 
             ///
 
             case NeuInteger i:
+            
                 return $"{i.Value} (Int)";
 
             ///
 
             case NeuBool b:
+
                 return $"{b.Value} (Bool)";
 
             ///
 
             default:
+
                 return $"{value} (unknown)";
         }   
     }

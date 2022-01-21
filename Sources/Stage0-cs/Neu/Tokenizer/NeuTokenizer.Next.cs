@@ -91,6 +91,15 @@ public static partial class NeuTokenizerFunctions {
                     return tokenizer.NextComma();
 
 
+                    /// Generics
+
+                case '<':
+                    return tokenizer.NextLess();
+
+                case '>':
+                    return tokenizer.NextGreater();
+                    
+
                     /// Binary Operators (punc)
 
                 case '=':

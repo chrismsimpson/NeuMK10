@@ -49,6 +49,18 @@ public static partial class NeuTokenizerFunctions {
         return tokenizer.MaybeNextPunc(NeuPuncType.RightBrace);
     }
 
+    public static NeuPunc? MaybeNextLeftBracket(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.MaybeNextPunc(NeuPuncType.LeftBracket);
+    }
+
+    public static NeuPunc? MaybeNextRightBracket(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.MaybeNextPunc(NeuPuncType.RightBracket);
+    }
+
     public static NeuPunc? MaybeNextColon(
         this Tokenizer<NeuToken> tokenizer) {
 
@@ -71,6 +83,18 @@ public static partial class NeuTokenizerFunctions {
         this Tokenizer<NeuToken> tokenizer) {
 
         return tokenizer.MaybeNextPunc(NeuPuncType.Equal);
+    }
+
+    public static NeuPunc? MaybeNextLess(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.MaybeNextPunc(NeuPuncType.Less);
+    }
+
+    public static NeuPunc? MaybeNextGreater(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.MaybeNextPunc(NeuPuncType.Greater);
     }
 
     ///
@@ -235,5 +259,17 @@ public static partial class NeuTokenizerFunctions {
         this Tokenizer<NeuToken> tokenizer) {
 
         return tokenizer.NextPunc("--", NeuPuncType.HyphenHyphen);
+    }
+
+    private static NeuPunc NextLess(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextPunc('<', NeuPuncType.Less);
+    }
+
+    private static NeuPunc NextGreater(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        return tokenizer.NextPunc('>', NeuPuncType.Greater);
     }
 }
