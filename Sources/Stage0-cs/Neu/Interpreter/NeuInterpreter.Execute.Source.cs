@@ -82,6 +82,10 @@ public static partial class NeuInterpreterFunctions {
         foreach (var stackOp in stackOperations) {
             
             lastValue = interpreter.Execute(stackOp);
+
+            ///
+
+            interpreter.SourceOutput.Add(lastValue);
         }
 
         ///
@@ -107,6 +111,10 @@ public static partial class NeuInterpreterFunctions {
             ///
 
             lastValue = interpreter.Execute(mainFunc, Empty<NeuArgument>());
+
+            ///
+
+            interpreter.SourceOutput.Add(lastValue);
         }
 
         ///

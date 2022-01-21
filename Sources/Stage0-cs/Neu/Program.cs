@@ -34,6 +34,6 @@ public static partial class Program {
 
         stopwatch.Stop();
 
-        WriteLine($"{commandName} completed in {stopwatch.GetElapsedString()}");
+        WriteLine($"\n  '{commandName}' completed in {stopwatch.GetElapsedString()}");
     }
 } 

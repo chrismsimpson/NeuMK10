@@ -1,9 +1,9 @@
 
 namespace Neu;
 
-public partial class NeuFooTestCommand: NeuTestsCommand {
+public partial class NeuSizeOfTestCommand: NeuTestsCommand {
     
-    public NeuFooTestCommand() { }
+    public NeuSizeOfTestCommand() { }
 
     ///
 

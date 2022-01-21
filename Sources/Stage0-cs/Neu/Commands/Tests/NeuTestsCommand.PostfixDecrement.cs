@@ -32,14 +32,7 @@ public partial class NeuPostfixDecrementTestCommand: NeuTestsCommand {
 
             ///
 
-            var silent = arguments.Get("--silent") == null
-                ? false
-                : true;
-
-            if (!silent) {
-            
-                WriteLine($"  Test {filename} successful\n");
-            }
+            WriteSuccessMessage(arguments);
         });
     }
 }
