@@ -1,7 +1,4 @@
 
-func main() {
-
-    var n = sizeof(Float)
-
-    return
-}
+sizeof(Int)
+sizeof(Bool)
+sizeof(Float)

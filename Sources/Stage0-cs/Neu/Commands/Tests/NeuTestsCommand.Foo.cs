@@ -14,7 +14,7 @@ public partial class NeuFooTestCommand: NeuTestsCommand {
 
             var (filename, result) = this.Evaluate(arguments);
 
-            WriteLine($"Result: {result?.Dump()}");
+            // WriteLine($"Result: {result?.Dump()}");
         });
     }
 }
