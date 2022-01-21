@@ -94,6 +94,12 @@ public static partial class NeuInterpreterFunctions {
 
                 return bl;
 
+
+
+
+
+
+
             ///
 
             case "Int":
@@ -107,18 +113,41 @@ public static partial class NeuInterpreterFunctions {
 
                 return i;
 
+
+
+
+
+
+
+
             ///
 
             case "Float":
 
-                var f = evalArguments.SingleOrDefault()?.Value as NeuFloat;
+                var floatVal = evalArguments.SingleOrDefault();
 
-                if (f == null) {
+                ///
 
-                    throw new Exception();
+                switch (floatVal?.Value) {
+
+                    case NeuInteger fi:
+
+                        return new NeuFloat(Convert.ToSingle(fi.Value));
+
+                    ///
+
+                    case NeuFloat f:
+
+                        return f;
+
+                    ///
+
+                    default:
+
+                        throw new Exception();
+
                 }
 
-                return f;
 
                 
 

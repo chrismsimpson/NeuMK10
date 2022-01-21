@@ -16,7 +16,12 @@ public partial class NeuSizeOfTestCommand: NeuTestsCommand {
 
             ///
 
-            this.ZipAssertSourceOutput(new dynamic[] { 4, 1, 4 });
+            this.ZipAssertSourceOutput(new dynamic[] {
+                
+                ((int) 4), 
+                ((int) 1), 
+                ((int) 4)
+            });
 
             ///
 

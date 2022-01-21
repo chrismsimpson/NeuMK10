@@ -16,7 +16,12 @@ public partial class NeuFooTestCommand: NeuTestsCommand {
 
             ///
 
-            this.ZipAssertSourceOutput(new dynamic[] { ((int) 8) });
+            this.ZipAssertSourceOutput(new dynamic[] {
+                
+                ((int) 8),
+                ((int) 3),
+                ((float) 10 / 3)
+            });
 
             ///
 
