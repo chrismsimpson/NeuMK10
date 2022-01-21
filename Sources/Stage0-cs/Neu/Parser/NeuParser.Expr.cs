@@ -40,12 +40,12 @@ public static partial class NeuParserFunctions {
 
         ///
 
-        if (parser.Tokenizer.MatchComma()) {
+        // if (parser.Tokenizer.MatchComma()) {
 
-            /// TODO
+        //     /// TODO
 
-            throw new Exception();
-        }
+        //     throw new Exception();
+        // }
 
         ///
 

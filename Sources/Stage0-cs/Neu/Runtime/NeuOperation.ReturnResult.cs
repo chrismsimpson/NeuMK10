@@ -65,6 +65,14 @@ public static partial class NeuReturnResultFunctions {
                 return true;
 
             ///
+
+            case NeuArray a when
+                returnType is NeuSimpleTypeId simpleTypeId &&
+                simpleTypeId.GetFirstOrDefault<NeuIdentifier>() is NeuIdentifier id &&
+                id.Source == "Array":
+                return true;
+
+            ///
                 
             default:
                 return false;

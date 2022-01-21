@@ -16,17 +16,38 @@ public partial class NeuBasicArrayTestCommand: NeuTestsCommand {
 
             ///
 
-            var intResult = result as NeuInteger;
+            var arrayResult = result as NeuArray;
 
-            if (intResult == null) {
+            if (arrayResult == null) {
 
                 throw new Exception();
             }
 
             ///
 
-            if (intResult.Value != 13) {
+            if (arrayResult.Elements.Count() != 3) {
                 
+                throw new Exception();
+            }
+
+            ///
+
+            if (!(arrayResult.ElementAt(0) is NeuInteger e0 && e0.Value == 1)) {
+
+                throw new Exception();
+            }
+
+            ///
+
+            if (!(arrayResult.ElementAt(1) is NeuInteger e1 && e1.Value == 2)) {
+
+                throw new Exception();
+            }
+
+            ///
+
+            if (!(arrayResult.ElementAt(2) is NeuInteger e2 && e2.Value == 3)) {
+
                 throw new Exception();
             }
 

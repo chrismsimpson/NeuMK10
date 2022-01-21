@@ -51,6 +51,12 @@ public static partial class NeuInterpreterFunctions {
 
             ///
 
+            case NeuArrayExpression arrayExpr:
+
+                return interpreter.Execute(arrayExpr);
+
+            ///
+
             default:
                 
                 throw new Exception();

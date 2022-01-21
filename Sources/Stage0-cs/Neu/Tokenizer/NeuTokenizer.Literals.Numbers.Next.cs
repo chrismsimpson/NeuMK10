@@ -47,7 +47,7 @@ public static partial class NeuTokenizerFunctions {
 
         ///
 
-        if (tokenizer.GetTypeHint() is NeuTypeIdentifier typeId) {
+        if (tokenizer.GetTopNumericTypeHint() is NeuTypeIdentifier typeId) {
 
             switch (typeId) {
 

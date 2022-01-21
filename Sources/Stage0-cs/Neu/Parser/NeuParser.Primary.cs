@@ -59,6 +59,12 @@ public static partial class NeuParserFunctions {
 
             ///
 
+            case NeuPunc p when p.PuncType == NeuPuncType.LeftBracket:
+
+                return parser.NeuArrayExpression(start);
+
+            ///
+
             case var t:
 
                 throw new Exception($"Unexpected: {t}");

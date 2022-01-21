@@ -27,7 +27,7 @@ public static partial class NeuParserFunctions {
 
         if (parser.Tokenizer.MatchLess()) {
 
-            var genericArgClause = parser.ParseGenericArgumentClause();
+            var genericArgClause = parser.ParseGenericArgClause();
 
             children.Add(genericArgClause);
         }

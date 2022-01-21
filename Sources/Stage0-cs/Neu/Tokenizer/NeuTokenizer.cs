@@ -38,7 +38,46 @@ public partial class NeuTokenizer {
 
 public static partial class NeuParserFunctions {
 
-    public static NeuTypeIdentifier? GetTypeHint(
+    public static NeuTypeIdentifier? GetTopNumericTypeHint(
+        this Tokenizer<NeuToken> tokenizer) {
+
+        var t = tokenizer as NeuTokenizer;
+
+        if (t == null) {
+
+            throw new Exception($"Unsupported tokenizer");
+        }
+
+        ///
+
+        foreach (var typeHint in t.TypeHints) {
+
+            switch (typeHint) {
+
+                case NeuSimpleTypeId simpleTypeId when simpleTypeId.GetIdentifer()?.Source == "Int":
+
+                    return typeHint;
+
+                ///
+
+                case NeuSimpleTypeId simpleTypeId when simpleTypeId.GetIdentifer()?.Source == "Float":
+
+                    return typeHint;
+
+                ///
+
+                default:
+
+                    break;
+            }
+        }
+
+        ///
+
+        return null;
+    }
+
+    public static NeuTypeIdentifier? GetTopTypeHint(
         this Tokenizer<NeuToken> tokenizer) {
 
         var t = tokenizer as NeuTokenizer;
