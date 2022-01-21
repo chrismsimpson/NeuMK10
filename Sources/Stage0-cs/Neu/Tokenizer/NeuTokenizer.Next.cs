@@ -98,7 +98,7 @@ public static partial class NeuTokenizerFunctions {
 
                 case '>':
                     return tokenizer.NextGreater();
-
+                    
 
                     /// Binary Operators (punc)
 
