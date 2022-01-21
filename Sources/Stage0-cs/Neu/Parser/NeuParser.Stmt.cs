@@ -34,11 +34,18 @@ public static partial class NeuParserFunctions {
 
 
 
+
+
+
             /// Unary Ops
 
             case NeuKeyword keyword when keyword.KeywordType == NeuKeywordType.SizeOf:
 
                 return parser.ParseUnaryExpression();
+
+
+
+
 
 
 
@@ -50,6 +57,11 @@ public static partial class NeuParserFunctions {
                 return parser.ParseReturnStatement();
 
 
+
+
+
+
+
             /// 
 
             case NeuIdentifier _:
@@ -58,11 +70,32 @@ public static partial class NeuParserFunctions {
 
 
             
+
+
+
             ///
 
             case var _ when parser.Tokenizer.MatchPrefixOperator():
 
                 return parser.ParsePrefixExpression();
+
+
+
+
+
+
+
+            ///
+
+            case NeuIntegerLiteral _ when parser.ParseExpression() is NeuStatement s:
+
+                return s;
+
+
+
+
+
+
 
 
 

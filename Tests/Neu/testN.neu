@@ -1,4 +1,2 @@
 
-sizeof(Int)
-sizeof(Bool)
-sizeof(Float)
+Int(4) + Int(4)

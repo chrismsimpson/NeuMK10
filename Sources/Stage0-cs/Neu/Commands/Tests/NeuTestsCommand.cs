@@ -238,9 +238,9 @@ public class NeuTestsCommand: ICommand {
         await new NeuBoolFalseTestCommand()
             .Run(filename: "./Tests/Neu/test10.neu", args);
 
-
         await new NeuSizeOfTestCommand()
             .Run(filename: "./Tests/Neu/test11-sizeof.neu", args);
+
 
         await new NeuFooTestCommand()
             .Run(filename: "./Tests/Neu/testN.neu", args);
