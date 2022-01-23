@@ -5,16 +5,16 @@ public partial class Node {
 
     public IEnumerable<Node> Children { get; init; }
 
-    public SourceLocation Start { get; init; }
+    public ISourceLocation Start { get; init; }
 
-    public SourceLocation End { get; init; }
+    public ISourceLocation End { get; init; }
 
     ///
     
     public Node(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end) {
+        ISourceLocation start,
+        ISourceLocation end) {
 
         this.Children = children;
         this.Start = start;

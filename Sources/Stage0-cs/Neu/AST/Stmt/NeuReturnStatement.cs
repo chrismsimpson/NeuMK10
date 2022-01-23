@@ -5,8 +5,8 @@ public partial class NeuReturnStatement: NeuStatement {
 
     public NeuReturnStatement(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(children, start, end) { }
 }
 

@@ -28,7 +28,7 @@ public static partial class IScannerFunctions {
 
     ///
 
-    public static SourceLocation GetLocation(
+    public static ISourceLocation GetLocation(
         this IScanner scanner) {
 
         return new SourceLocation(

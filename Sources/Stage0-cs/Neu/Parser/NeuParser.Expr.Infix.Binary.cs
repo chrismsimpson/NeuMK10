@@ -5,7 +5,7 @@ public static partial class NeuParserFunctions {
 
     public static NeuBinaryExpression ParseBinaryExpression(
         this NeuParser parser,
-        SourceLocation start,
+        ISourceLocation start,
         Node lhs,
         NeuBinaryOperator op,
         Node rhs) {

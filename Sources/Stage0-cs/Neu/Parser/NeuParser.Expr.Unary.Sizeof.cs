@@ -5,7 +5,7 @@ public static partial class NeuParserFunctions {
 
     public static NeuSizeOfExpression ParseSizeOfExpression(
         this NeuParser parser,
-        SourceLocation start,
+        ISourceLocation start,
         NeuUnaryOperator op) {
 
         var children = new List<Node>();

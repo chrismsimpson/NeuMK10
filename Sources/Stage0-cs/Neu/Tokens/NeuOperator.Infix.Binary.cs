@@ -17,8 +17,8 @@ public partial class NeuBinaryOperator: NeuInfixOperator {
 
     public NeuBinaryOperator(
         Char source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         NeuBinaryOperatorType operatorType)
         : base(new String(new Char[] { source }), start, end) {
 
@@ -27,8 +27,8 @@ public partial class NeuBinaryOperator: NeuInfixOperator {
 
     public NeuBinaryOperator(
         String source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         NeuBinaryOperatorType operatorType)
         : base(source, start, end) {
             

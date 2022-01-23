@@ -38,7 +38,7 @@ public static partial class TokenizerFunctions {
         return false;
     }
 
-    public static SourceLocation GetLocation<T>(
+    public static ISourceLocation GetLocation<T>(
         this Tokenizer<T> tokenizer)
         where T: Token {
 

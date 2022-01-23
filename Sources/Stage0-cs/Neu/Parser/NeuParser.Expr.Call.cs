@@ -5,7 +5,7 @@ public static partial class NeuParserFunctions {
 
     public static NeuCallExpression ParseCallExpression(
         this NeuParser parser,
-        SourceLocation start,
+        ISourceLocation start,
         Node first,
         IEnumerable<Node> arguments) {
 

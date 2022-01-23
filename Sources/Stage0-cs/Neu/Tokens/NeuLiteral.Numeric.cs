@@ -5,7 +5,7 @@ public partial class NeuNumberLiteral: NeuLiteral {
 
     public NeuNumberLiteral(
         String source,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(source, start, end) { }
 }

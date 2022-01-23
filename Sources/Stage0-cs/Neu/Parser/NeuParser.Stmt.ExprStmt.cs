@@ -5,7 +5,7 @@ public static partial class NeuParserFunctions {
 
     public static NeuExpressionStatement ParseExpressionStatement(
         this NeuParser parser,
-        SourceLocation start,
+        ISourceLocation start,
         Node node) {
 
         var children = new List<Node>();

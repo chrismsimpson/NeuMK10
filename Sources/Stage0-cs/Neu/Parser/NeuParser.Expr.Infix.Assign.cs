@@ -5,7 +5,7 @@ public static partial class NeuParserFunctions {
 
     public static NeuAssignmentExpression ParseAssignExpression(
         this NeuParser parser,
-        SourceLocation start,
+        ISourceLocation start,
         Node lhs,
         NeuAssignOperator op,
         Node rhs) {

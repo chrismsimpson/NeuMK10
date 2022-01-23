@@ -9,8 +9,8 @@ public partial class NeuFloatLiteral: NeuNumberLiteral {
 
     public NeuFloatLiteral(
         String source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         float value)
         : base(source, start, end) {
 

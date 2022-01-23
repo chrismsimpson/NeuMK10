@@ -9,11 +9,11 @@ public partial class NeuBoolLiteral: NeuLiteral {
 
     public NeuBoolLiteral(
         String source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         bool value)
-        : base(source, start, end)
-    {
+        : base(source, start, end) {
+
         this.Value = value;
     }
 }

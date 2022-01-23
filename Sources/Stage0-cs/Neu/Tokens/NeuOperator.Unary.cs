@@ -16,8 +16,8 @@ public partial class NeuUnaryOperator: NeuOperator {
 
     public NeuUnaryOperator(
         String source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         NeuUnaryOperatorType operatorType)
         : base(source, start, end) {
             

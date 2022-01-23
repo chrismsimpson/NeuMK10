@@ -1,12 +1,12 @@
 
 namespace Neu;
 
-public partial class NeuExpression: NeuStatement { // NeuCodeBlockItem {
+public partial class NeuExpression: NeuStatement {
 
     public NeuExpression(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(children, start, end) { }
 }
 

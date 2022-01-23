@@ -5,7 +5,7 @@ public static partial class NeuParserFunctions {
 
     public static NeuInfixExpression ParseInfixExpression(
         this NeuParser parser,
-        SourceLocation start,
+        ISourceLocation start,
         Node lhs,
         NeuInfixOperator op,
         Node rhs) {

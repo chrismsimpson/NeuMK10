@@ -42,8 +42,8 @@ public partial class NeuPunc: NeuToken {
 
     public NeuPunc(
         Char source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         NeuPuncType puncType)
         : base(new String(new Char[] { source }), start, end) {
 
@@ -52,8 +52,8 @@ public partial class NeuPunc: NeuToken {
 
     public NeuPunc(
         String source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         NeuPuncType puncType)
         : base(source, start, end) {
             

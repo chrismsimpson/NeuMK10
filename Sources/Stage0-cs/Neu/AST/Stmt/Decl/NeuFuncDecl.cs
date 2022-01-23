@@ -5,8 +5,8 @@ public partial class NeuFuncDecl: NeuDeclaration {
 
     public NeuFuncDecl(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(children, start, end) { }
 }
 

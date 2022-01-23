@@ -13,8 +13,8 @@ public partial class Token: Node, IToken {
 
     public Token(
         Char source,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(new Node[] { }, start, end) {
 
         this.Source = new String(new [] { source });
@@ -22,8 +22,8 @@ public partial class Token: Node, IToken {
 
     public Token(
         String source,
-        SourceLocation start, 
-        SourceLocation end)
+        ISourceLocation start, 
+        ISourceLocation end)
         : base(new Node[] { }, start, end) {
 
         this.Source = source;

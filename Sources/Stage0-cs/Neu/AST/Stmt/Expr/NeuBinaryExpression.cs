@@ -5,7 +5,7 @@ public partial class NeuBinaryExpression: NeuInfixExpression {
 
     public NeuBinaryExpression(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(children, start, end) { }
 }

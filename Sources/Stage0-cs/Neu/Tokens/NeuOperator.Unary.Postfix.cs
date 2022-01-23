@@ -5,8 +5,8 @@ public partial class NeuPostfixOperator: NeuUnaryOperator {
 
     public NeuPostfixOperator(
         String source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         NeuUnaryOperatorType operatorType)
         : base(source, start, end, operatorType) { }
 }

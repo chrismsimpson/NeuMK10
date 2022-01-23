@@ -15,7 +15,7 @@ public static partial class NeuParserFunctions {
 
     public static Node ParseOperand(
         this NeuParser parser,
-        SourceLocation start) {
+        ISourceLocation start) {
 
         var expr = parser.ParseExponentiation();
 

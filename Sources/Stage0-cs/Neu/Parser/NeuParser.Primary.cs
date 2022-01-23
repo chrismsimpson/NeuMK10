@@ -67,7 +67,7 @@ public static partial class NeuParserFunctions {
 
     public static NeuIdentifierExpression ParseIdentifierExpression(
         this NeuParser parser,
-        SourceLocation start,
+        ISourceLocation start,
         NeuIdentifier id) {
 
         return new NeuIdentifierExpression(
@@ -78,7 +78,7 @@ public static partial class NeuParserFunctions {
 
     public static NeuNumberLiteralExpression ParseNumberLiteralExpression(
         this NeuParser parser,
-        SourceLocation start,
+        ISourceLocation start,
         NeuNumberLiteral lit) {
 
         return new NeuNumberLiteralExpression(
@@ -89,7 +89,7 @@ public static partial class NeuParserFunctions {
 
     public static NeuBoolLiteralExpression ParseBoolLiteralExpression(
         this NeuParser parser,
-        SourceLocation start,
+        ISourceLocation start,
         NeuKeyword boolKeyword) {
 
         return new NeuBoolLiteralExpression(

@@ -14,8 +14,8 @@ public partial class NeuAssignOperator: NeuInfixOperator {
 
     public NeuAssignOperator(
         Char source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         NeuAssignOperatorType operatorType)
         : base(new String(new Char[] { source }), start, end) {
 
@@ -24,8 +24,8 @@ public partial class NeuAssignOperator: NeuInfixOperator {
 
     public NeuAssignOperator(
         String source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         NeuAssignOperatorType operatorType)
         : base(source, start, end) {
             

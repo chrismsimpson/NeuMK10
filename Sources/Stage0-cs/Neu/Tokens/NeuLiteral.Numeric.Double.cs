@@ -9,8 +9,8 @@ public partial class NeuDoubleLiteral: NeuNumberLiteral {
 
     public NeuDoubleLiteral(
         String source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         double value)
         : base(source, start, end) {
             

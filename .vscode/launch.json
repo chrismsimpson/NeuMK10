@@ -34,7 +34,7 @@
             "args": [
                 "tests",
                 // "--dump-ast",
-                // "--silent",
+                "--silent",
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",

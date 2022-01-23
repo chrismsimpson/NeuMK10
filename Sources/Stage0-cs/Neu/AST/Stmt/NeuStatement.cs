@@ -5,7 +5,7 @@ public partial class NeuStatement: NeuCodeBlockItem {
 
     public NeuStatement(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(children, start, end) { }
 }

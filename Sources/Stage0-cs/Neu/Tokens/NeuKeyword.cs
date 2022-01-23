@@ -22,8 +22,8 @@ public partial class NeuKeyword: NeuToken {
 
     public NeuKeyword(
         String source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         NeuKeywordType keywordType)
         : base(source, start, end) {
             

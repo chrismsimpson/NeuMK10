@@ -9,8 +9,8 @@ public partial class NeuIntegerLiteral: NeuNumberLiteral {
 
     public NeuIntegerLiteral(
         String source,
-        SourceLocation start,
-        SourceLocation end,
+        ISourceLocation start,
+        ISourceLocation end,
         int value)
         : base(source, start, end) {
             

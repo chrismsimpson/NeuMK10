@@ -5,8 +5,8 @@ public partial class NeuOperator: NeuToken {
 
     public NeuOperator(
         String source,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(source, start, end) { }
 }
 

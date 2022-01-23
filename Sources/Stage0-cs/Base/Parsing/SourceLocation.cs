@@ -1,7 +1,16 @@
 
 namespace Base;
 
-public partial class SourceLocation {
+public interface ISourceLocation {
+
+    int Position { get; init; }
+
+    int LineNumber { get; init; }
+
+    int Column { get; init; }
+}
+
+public partial class SourceLocation: ISourceLocation {
 
     public int Position { get; init; }
 

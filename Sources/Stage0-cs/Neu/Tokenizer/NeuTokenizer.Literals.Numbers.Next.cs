@@ -40,7 +40,7 @@ public static partial class NeuTokenizerFunctions {
 
     private static NeuNumberLiteral NextNumberLiteral(
         this Tokenizer<NeuToken> tokenizer,
-        SourceLocation start,
+        ISourceLocation start,
         String source) {
 
         String? rawHint = null;

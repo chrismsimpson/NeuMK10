@@ -5,8 +5,8 @@ public partial class NeuCallExpression: NeuExpression {
 
     public NeuCallExpression(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(children, start, end) { }
 }
 

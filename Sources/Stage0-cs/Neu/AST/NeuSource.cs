@@ -3,10 +3,17 @@ namespace Neu;
 
 public partial class NeuSource: NeuNode {
 
+    // public NeuSource() {
+
+    //     throw new Exception();
+    // }
+
+    ///
+
     public NeuSource(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(children, start, end) { }
 }
 

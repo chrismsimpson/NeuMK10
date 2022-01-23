@@ -5,7 +5,7 @@ public partial class NeuDeclaration: NeuStatement {
 
     public NeuDeclaration(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(children, start, end) { }
 }

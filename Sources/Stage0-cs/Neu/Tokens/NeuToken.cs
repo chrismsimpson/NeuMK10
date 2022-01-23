@@ -5,7 +5,7 @@ public partial class NeuToken: Token {
 
     public NeuToken(
         String source,
-        SourceLocation start,
-        SourceLocation end) 
+        ISourceLocation start,
+        ISourceLocation end) 
         : base(source, start, end) { }
 }

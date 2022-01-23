@@ -5,8 +5,8 @@ public partial class NeuInfixExpression: NeuExpression {
 
     public NeuInfixExpression(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(children, start, end) { }
 }
 

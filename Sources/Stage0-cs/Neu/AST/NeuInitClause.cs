@@ -5,8 +5,8 @@ public partial class NeuInitClause: NeuNode {
 
     public NeuInitClause(
         IEnumerable<Node> children,
-        SourceLocation start,
-        SourceLocation end)
+        ISourceLocation start,
+        ISourceLocation end)
         : base(children, start, end) { }
 }
 
