@@ -8,6 +8,30 @@ public partial class NeuFuncDecl: NeuDeclaration {
         ISourceLocation start,
         ISourceLocation end)
         : base(children, start, end) { }
+
+    ///
+
+    public NeuFuncDecl(
+        String name)
+        : base(
+            new Node[] {
+                new NeuKeyword("func", new UnknownLocation(), new UnknownLocation(), NeuKeywordType.Func),
+                new NeuIdentifier(name, new UnknownLocation(), new UnknownLocation()),
+                new NeuFuncSignature(
+                    new NeuParamClause(),
+                    new NeuReturnClause(
+                        new NeuSimpleTypeId(
+                            new NeuIdentifier("Bool")))),
+                new NeuCodeBlock(
+                    new NeuCodeBlockItemList(
+                        new NeuCodeBlockItem[] {
+                            new NeuReturnStatement(
+                                new NeuBoolLiteralExpression(
+                                    new NeuKeyword("true", new UnknownLocation(), new UnknownLocation(), NeuKeywordType.True)))
+                        }))
+            }, 
+            new UnknownLocation(), 
+            new UnknownLocation()) { }
 }
 
 ///

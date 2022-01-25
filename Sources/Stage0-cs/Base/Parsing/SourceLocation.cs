@@ -44,8 +44,8 @@ public partial class SourceLocation: ISourceLocation {
 public partial class SourceLocation {
 
     public static bool AreEqual(
-        SourceLocation lhs, 
-        SourceLocation rhs) {
+        ISourceLocation lhs,
+        ISourceLocation rhs) {
             
         return lhs.Position == rhs.Position;
     }

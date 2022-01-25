@@ -8,6 +8,12 @@ public partial class NeuBoolLiteralExpression: NeuLiteralExpression {
         ISourceLocation start,
         ISourceLocation end)
         : base(children, start, end) { }
+
+    ///
+
+    public NeuBoolLiteralExpression(
+        NeuKeyword keyword)
+        : base(new Node[] { keyword }, new UnknownLocation(), new UnknownLocation()) { }
 }
 
 ///

@@ -8,6 +8,17 @@ public partial class NeuReturnStatement: NeuStatement {
         ISourceLocation start,
         ISourceLocation end)
         : base(children, start, end) { }
+
+    ///
+
+    public NeuReturnStatement(
+        NeuExpression? expr)
+        : base(
+            expr != null
+                ? new Node [] { new NeuKeyword("return", new UnknownLocation(), new UnknownLocation(), NeuKeywordType.Return), expr }
+                : new Node [] { new NeuKeyword("return", new UnknownLocation(), new UnknownLocation(), NeuKeywordType.Return) }, 
+            new UnknownLocation(), 
+            new UnknownLocation()) { }
 }
 
 ///

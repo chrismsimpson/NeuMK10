@@ -29,4 +29,14 @@ public partial class NeuKeyword: NeuToken {
             
         this.KeywordType = keywordType;
     }
+
+    ///
+
+    public NeuKeyword(
+        String source,
+        NeuKeywordType keywordType)
+        : base(source, new UnknownLocation(), new UnknownLocation()) {
+
+        this.KeywordType = keywordType;
+    }
 }

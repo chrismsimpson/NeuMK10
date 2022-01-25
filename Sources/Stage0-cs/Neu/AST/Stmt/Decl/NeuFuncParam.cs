@@ -17,6 +17,11 @@ public partial class NeuFuncParamList: NeuNode {
         ISourceLocation start,
         ISourceLocation end)
         : base(children, start, end) { }
+
+    ///
+
+    public NeuFuncParamList()
+        : base(new Node[] { }, new UnknownLocation(), new UnknownLocation()) { }
 }
 
 ///

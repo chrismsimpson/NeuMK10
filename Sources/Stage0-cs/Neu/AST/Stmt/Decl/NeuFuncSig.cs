@@ -8,6 +8,18 @@ public partial class NeuFuncSignature: NeuNode {
         ISourceLocation start,
         ISourceLocation end)
         : base(children, start, end) { }
+
+    ///
+
+    public NeuFuncSignature(
+        NeuParamClause paramClause,
+        NeuReturnClause? returnClause = null)
+        : base(
+            returnClause != null
+                ? new Node[] { paramClause, returnClause }
+                : new Node[] { paramClause },
+            new UnknownLocation(), 
+            new UnknownLocation()) { }
 }
 
 public static partial class NeuFuncSignatureFunctions {

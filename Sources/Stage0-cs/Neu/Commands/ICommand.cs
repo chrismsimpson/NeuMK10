@@ -9,7 +9,16 @@ public static partial class ICommandFunctions {
         switch (command)  {
 
             case NeuBuildCommand _:
+
                 return "build";
+
+            ///
+
+            case NeuCodeGenCommand _:
+
+                return "codegen";
+
+            ///
 
             // case NeuEvalCommand _:
             //     return "eval";
@@ -18,9 +27,13 @@ public static partial class ICommandFunctions {
             //     return "interactive";
 
             case NeuTestsCommand _:
+
                  return "tests";
 
+            ///
+
             default:
+
                 throw new Exception();
         }
     }

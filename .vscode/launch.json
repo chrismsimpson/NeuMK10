@@ -27,6 +27,29 @@
             "requireExactSource": true
         },
         {
+            "name": "neu codegen",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Sources/Stage0-cs/Neu/bin/Debug/net6.0/Neu.dll",
+            "args": [
+                "codegen"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false,
+            "logging": {
+                "moduleLoad": false,
+                "engineLogging": false,
+                "elapsedTiming": false,
+                "exceptions": true,
+                "processExit": true,
+                "programOutput": true,
+                "threadExit": false
+            },
+            "requireExactSource": true
+        },
+        {
             "name": "neu tests",
             "type": "coreclr",
             "request": "launch",
@@ -34,7 +57,7 @@
             "args": [
                 "tests",
                 // "--dump-ast",
-                "--silent",
+                // "--silent",
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",

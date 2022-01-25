@@ -8,6 +8,18 @@ public partial class NeuReturnClause: NeuNode {
         ISourceLocation start,
         ISourceLocation end)
         : base(children, start, end) { }
+
+    ///
+
+    public NeuReturnClause(
+        NeuTypeIdentifier typeId)
+        : base(
+            new Node[] {
+                new NeuPunc("->", new UnknownLocation(), new UnknownLocation(), NeuPuncType.Arrow),
+                typeId
+            },
+            new UnknownLocation(), 
+            new UnknownLocation()) { }
 }
 
 ///

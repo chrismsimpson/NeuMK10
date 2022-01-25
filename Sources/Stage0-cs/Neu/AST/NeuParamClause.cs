@@ -8,6 +8,18 @@ public partial class NeuParamClause: NeuNode {
         ISourceLocation start,
         ISourceLocation end)
         : base(children, start, end) { }
+
+    ///
+
+    public NeuParamClause()
+        : base(
+            new Node[] {
+                new NeuPunc('(', new UnknownLocation(), new UnknownLocation(), NeuPuncType.LeftParen),
+                new NeuFuncParamList(),
+                new NeuPunc(')', new UnknownLocation(), new UnknownLocation(), NeuPuncType.RightParen),
+            }, 
+            new UnknownLocation(), 
+            new UnknownLocation()) { }
 }
 
 ///

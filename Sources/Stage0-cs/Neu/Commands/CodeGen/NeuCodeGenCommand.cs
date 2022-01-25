@@ -12,11 +12,23 @@ public class NeuCodeGenCommand: ICommand {
 
         await Task.Run(() => {
 
-            // var s = new NeuSource();
+            var generator = new NeuCodeGenerator();
+
+            var f = new NeuFuncDecl(
+                name: "foo");
 
             ///
 
-            WriteLine($"Hello code gen!");
+            generator.Generate(f);
+
+            ///
+
+            var b = generator.Builder.ToString();
+
+            ///
+
+            WriteLine($"Generated code:\n\n```\n{b}\n```\n");
+
         });
     }
 }

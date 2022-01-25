@@ -8,6 +8,12 @@ public partial class NeuSimpleTypeId: NeuTypeIdentifier {
         ISourceLocation start,
         ISourceLocation end)
         : base(children, start, end) { }
+
+    ///
+
+    public NeuSimpleTypeId(
+        NeuIdentifier id)
+        : base(new Node[] { id }, new UnknownLocation(), new UnknownLocation()) { }
 }
 
 public static partial class NeuSimpleTypeIdFunctions {

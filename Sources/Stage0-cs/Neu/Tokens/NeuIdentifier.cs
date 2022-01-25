@@ -8,4 +8,10 @@ public class NeuIdentifier: NeuToken {
         ISourceLocation start,
         ISourceLocation end)
         : base(source, start, end) { }
+
+    ///
+
+    public NeuIdentifier(
+        String source)
+        : base(source, new UnknownLocation(), new UnknownLocation()) { }
 }

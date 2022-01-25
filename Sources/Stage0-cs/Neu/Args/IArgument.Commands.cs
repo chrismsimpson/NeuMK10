@@ -8,10 +8,18 @@ public static partial class IArgumentFunctions {
 
         switch (arguments.GetFirstArgumentSource()) {
 
-            // /// Build
+            /// Build
 
             case "build":
                 return arguments.ToBuildCommand();
+
+
+
+            /// Code Gen
+
+            case "codegen":
+                return arguments.ToCodeGenCommand();
+
 
 
 

@@ -1,0 +1,4 @@
+
+load r1, 100
+load r2, 50
+add r3, r1, r2
