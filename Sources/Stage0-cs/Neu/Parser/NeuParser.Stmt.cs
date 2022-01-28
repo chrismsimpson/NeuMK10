@@ -39,9 +39,10 @@ public static partial class NeuParserFunctions {
 
             /// Unary Ops
 
-            case NeuKeyword keyword when keyword.KeywordType == NeuKeywordType.SizeOf:
+            // case NeuKeyword keyword when keyword.KeywordType == NeuKeywordType.SizeOf:
 
-                return parser.ParseUnaryExpression();
+            //     // return parser.ParseUnaryExpression();
+            //     return parser.ParseLabeledStatement();
 
 
 
@@ -63,6 +64,8 @@ public static partial class NeuParserFunctions {
 
 
             /// 
+
+            case NeuKeyword keyword when keyword.KeywordType == NeuKeywordType.SizeOf:
 
             case NeuIdentifier _:
 
